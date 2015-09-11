@@ -2,24 +2,50 @@
 
 <html>
   <head>
-    <title>Your page title here</title>
+    <title>git and GitHub | webdevjeff</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="your-stylesheet-link-here.css">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
   </head>
 
   <body>
-    <main>
-      <h1>Post Title</h1>
-      <h2>The subtitle, if you want it</h2>
-      <h4>Today's Date</h4>
+    <div class="content">
+      <header>
+        <h1>webdevjeff goes to dbc</h1>
+        <p class="header__byline">a blog by jeff george</p>
 
-      <section>
-        <p>Your first paragraph goes here. I'm using Web 2.0 Ipsum to add content. Webtwo ipsum dolor sit amet, eskobo chumby doostang bebo. Nuvvo koofers oooooc voxy klout jaiku palantir flickr insala zinch napster oooj, airbnb mzinga vimeo yuntaa balihoo plickers whrrl edmodo appjet kippt. Yoono imvu hulu eduvant blekko imvu ebay voki napster skype, hipmunk zinch wesabe bubbli ning meebo bitly zlio. Fleck elgg ideeli disqus rovio zillow sifteo blyve jabber, bitly geni zoho foodzie qeyno twones klout jiglu, hipmunk jaiku balihoo plickers heekya eskobo yuntaa. Sococo whrrl plickers movity whrrl zinch voki nuvvo meebo, quora heroku unigo kno wufoo jibjab woopra, groupon yuntaa spock mzinga jumo meebo movity.</p>
-        <p>Lijit groupon ning stypi eskobo blyve ning shopify oooooc, meebo groupon prezi ebay voxy bitly diigo. Spock ifttt skype hipmunk movity whrrl bebo oooj empressr, disqus insala palantir bitly dropio zimbra zinch oooooc etsy, klout spock insala quora omgpop trulia jibjab. Sifteo dogster ebay grockit geni scribd bitly ning unigo, plickers voki mzinga tumblr kaboodle mozy whrrl woopra udemy, foodzie joukuu elgg twitter shopify akismet rovio. Kosmix eduvant woopra dopplr balihoo ning bebo akismet, boxbe vimeo kosmix shopify zappos bitly geni loopt, qeyno disqus sococo squidoo wikia octopart.</p>
-        <p>Kazaa meevee eduvant gsnap movity kosmix kazaa klout jumo, trulia unigo groupon wakoopa spock knewton glogster heroku oooj, ning imvu appjet eskobo zillow twitter rovio. Glogster chegg voxy greplin dopplr voki foodzie xobni weebly odeo, sococo zynga knewton loopt palantir lala blyve tumblr blekko, twones akismet plaxo kippt meebo zillow zooomr insala. Oovoo imeem napster divvyshot zinch imeem voxy shopify, fleck kazaa zinch lanyrd boxbe joost wakoopa nuvvo, orkut elgg heekya sifteo scribd napster. Yammer yoono groupon dopplr cloudera nuvvo eduvant klout, voxy groupon disqus eduvant oooj greplin.</p>
-        <!-- copy and paste as many sections as you want to add paragraphs -->
-      </section>
-    </main>
+      </header>
+
+
+      <main>
+        <h1>git and GitHub</h1>
+        <h2 class="subhead">Version averse no longer!</h2>
+        <h4 class="date">Sept. 11, 2015</h4>
+
+        <section>
+          <p>I'd heard of version control before I got to Dev Bootcamp. (Technically, I'm not <em>at</em> Dev Bootcamp now &mdash; I'm in the first week of the 9-week remote preparation course DBC calls "Phase 0".) I'd made a GitHub and BitBucket accounts for online courses I took while teaching myself basic programming. I even did two short courses through Udemy that focused specifically on git and GitHub. But it still seemed like sorcery to me. I'd recite the incantations as best I could, and sometimes the right thing would happen, but I was never quite sure what had happened and why. Eventually, I'd get confused and frustrated, and go back to haphazardly archiving versions of my project in Dropbox folders, putting off <em>real</em> version control for later.</p>
+          <p>Well, now it's later. I'm enrolled in Dev Bootcamp, and the first week of Phase 0 is all about version control, so I can't avoid it any longer. Sure, some of the Week 1 assignments <em>say</em> they're about other things, but they're really mostly about practicing creating, forking, cloning, branching, pushing, pulling, and merging repositories on GitHub. I'm still not certain about everything that's going on, but at least I've learned the basics. Here's the little that I know...</p>
+
+          <h2>You can't afford <br>to be version averse</h2>
+          <p>As a coder, you can sort of limp along without version control &mdash; as long as you're working alone. As soon as you want to collaborate with even one other developer, the risk of things going suddenly, sickeningly wrong goes up by several orders of magnitude. One person may save over another person's work, or delete key files, or have a brilliant idea for a feature you cut three versions back. Development teams need a system that lets them share project files, edit them, add to them, merge them back together, and archive them so that old versions can be recovered and restored if necessary. A real version control system &mdash; like git and GitHub &mdash; does all that for you.</p>
+          <p>Here's what version control does, in a nutshell. A master repository for all the files that make up the project is created on a system that is accessable to all members of the development team. Each team member can download (pull) a copy (branch) to her own computer and work on any and all files...while everyone else is also working with the same files! At appropriate intervals, each team can upload (push) their branch back up to the master repository, compare (compare, believe it not) their files to those in the master branch, resolve any conflicts between the two versions that are discovered during the comparison, and them merge their changes into the master branch. A complete archive of the entire project is saved with every such update, along with a message detailing the changes made; if necessary, all or part of any archived version can be recovered and re-incorporated into the ongoing project.</p>
+          <p>With version control, you no longer have to worry about losing work when someone accidentally saves over or deletes a teammate's files. If a fatal error gets coded into the project, you can roll back to the last version without the problem, instead of starting over from scratch. And if you want to explore different options for the project &mdash; such as whether or not to redesign the interface or include controversial features &mdash; the team can create a separate branch (called a fork) and continue to develop both versions in parallel, eventually deciding whether to merge them back together, or to abandon one fork entirely. Version control offers development teams both security and options that aren't available any other way.</p>
+
+          <h2>git'er done with GitHub</h2>
+          <p>Once you've decided to use version control, you have to pick a system to use. Unless you're required by a client or employer to use another, the best choice today is git and GitHub, which is the most popular version control system and service in the open-source web-development community. It's the pairing that everyone knows, and everyone expects you to be comfortable with. The git software is free to download and install, and GitHub serves the open-source community by offering their services and servers for free for all public repositories. But what's the difference between git and GitHub, and why would anyone need both?</p>
+          <p><strong><a href="https://git-scm.com/">git</a></strong> is a version-control system originally invented by Linus Torvalds to support the open-source development of the Linux operating system. It is a program that is installed on your own computer, where it saves and manages file repositories locally. git is best operated using the command line, instead through a graphic user interface &mdash; which is part of why it's daunting to learn for many modern computer users.</p>
+          <p><strong><a href="https://github.com/">GitHub</a></strong> is an internet-based service which allows users to store and share their git repositories online, enabling teams of developers to communicate and collaborate on version-controlled projects regardless of their physical location. Users manage their online repositories using GitHub's graphical interface, but local git operations must still be performed from the command line. GitHub relies upon git, but git is not limited to GitHub; git can be used locally without GitHub, or in conjunction with a rival service such as BitBucket. GitHub is free to use for public repositories, but charges a fee for hosting private repos.</p>
+
+          <h2>Now git going!</h2>
+          <p>To install git, you'll need to follow the directions at <a href="https://git-scm.com/">the git website</a> &mdash; the procedure will vary according to your operating system. It's easy to <a href="https://github.com/">make a GitHub account</a>, though, and tutorials on the GitHub site will help you get started using it.</p>
+          <p>Once you've installed git and made your GitHub account, you may (or may not) find these walk-throughs of common git tasks helpful:</p>
+          <ul>
+            <li><a href="git-create-repo.md">Create a GitHub Repo</a> &mdash; How to create a new repository on GitHub and clone it to your local system</li>
+            <li><a href="https://github.com/webdevjeffus/phase-0/blob/master/week-1/git-workflow-ref.md">git Workflow Walk-through</a> &mdash; How to begin and end each day of software development in a git-controlled project.</li>
+          </ul>
+          <!-- copy and paste as many sections as you want to add paragraphs -->
+        </section>
+      </main>
+    </div><!-- /.content -->
   </body>
 </html>
 
