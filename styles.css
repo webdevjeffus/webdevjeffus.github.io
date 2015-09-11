@@ -1,0 +1,141 @@
+/* Blog stylesheet */
+
+/* Colors
+
+Light silver      rgb (236, 236, 236);
+  content background
+
+Pewter            rgb (200, 200, 200);
+  body background
+
+Charcoal          rgb (36, 36, 36);
+  body text
+
+Half red          rgb(128, 16, 16);
+  h1...h6
+
+3/4 red           rgb(192, 24, 24);
+  header text
+
+*/
+
+
+/* GENERAL STYLES */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: rgb(200, 200, 200);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+body {
+  background-color: rgb(200, 200, 200);
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  max-width: 640px;
+  min-width: 575px;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: rgb(128, 16, 16);
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: 3em;
+  margin-top: 2em;
+}
+
+h1:first-child {
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 2em;
+  margin-top: 1em;
+}
+
+h2.subhead {
+  padding-left: 1em;
+  margin-top: 0.25em;
+  font-size: 1.5em;
+  font-style: italic;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin-top: 1.25em;
+}
+
+h4 {
+  font-size: 1.25em;
+  margin-top: 1em;
+}
+
+h4.date {
+  font-weight: normal;
+  font-size: 1.2em;
+  margin-top: 0.75em;
+}
+
+p {
+  line-height: 1.4em;
+}
+
+a {
+  color: rgb(128,16,16);
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  color: rgb(196, 24, 24);
+  text-decoration: underline;
+}
+
+/* HEADER STYLES */
+
+header {
+  background-color: rgb(36, 36, 36);
+  color: rgb(192,24,24);
+  width: 100%;
+  height: 3.5em;
+  padding: 0.5em 1em;
+}
+
+header h1 {
+  color: rgb(192,24,24);
+  float: left;
+  font-size: 2em;
+}
+
+.header__byline {
+  float: right;
+  text-align: right;
+}
+
+
+/* MAIN STYLES */
+
+main {
+  background-color: rgb(236, 236, 236);
+  color: rgb (36, 36, 36);
+  margin: 0;
+  padding: 1em;
+}
+
