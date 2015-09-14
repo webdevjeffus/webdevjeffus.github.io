@@ -9,6 +9,7 @@ Searches help files for instances of the keyword. Somewhat useful when you’ve 
 #### cat [FILENAME] - *Catenate*
 Prints entire contents of file to terminal.
 
+
 * **cat > [NEW_FILENAME]**
 Reads whatever the user types, and writes it to the new file NEW_FILENAME. End input by pressing **CTRL-d**.
 
@@ -62,6 +63,7 @@ Searches for text STRING in text file FILENAME. If the STRING includes spaces, i
   Redirects output to new file NEW_FILENAME, instead of displaying on terminal; new file can then be displayed using **less** or edited with **subl**.
 * **grep [STRING] [FILENAME] | wc -l**
   Pipes output to second bash command (in this case **wc**, word count), and returns the output of the second command, operating on the output of the first command.
+
 
 #### head [FILENAME] - *Head*
 Prints first ten lines of file to terminal.
