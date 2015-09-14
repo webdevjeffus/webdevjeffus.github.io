@@ -9,30 +9,30 @@ Searches help files for instances of the keyword. Somewhat useful when you’ve 
 #### cat [FILENAME] - *Catenate*
 Prints entire contents of file to terminal.
 
-* cat > [NEW_FILENAME]
+* **cat > [NEW_FILENAME]**
 Reads whatever the user types, and writes it to the new file NEW_FILENAME. End input by pressing **CTRL-d**.
 
 #### cd [directory-name] - *Call Directory*
 * **cd [path]** Jump directly to specified directory.
 * **cd** -  Jump back to last directory.
 
-#### chmod - (Add entry)
+#### chmod - *(Add entry)*
 
-#### chown - (Add entry)
+#### chown - *(Add entry)*
 
 #### cp [OLD_FILENAME] [NEW_FILENAME] - *Copy file*
-Creates a copy of the original file “old-filename” named “new-filename”.
+Creates a copy of the original file OLD_FILENAME named NEW_FILENAME.
 * **cp [FILENAME] [PATH]**
   Copies file to new directory at “path” with same name.
-* **cp [FILENAME] [PATH][new-filename]**
-  Copies file to new directory and also gives copy a new name.
+* **cp [FILENAME] [PATH][NEW_FILENAME]**
+  Copies file FILENAME to new directory PATH and also gives the copy a new name NEW_FILENAME.
 * **cp -r [CURRENT_DIR_PATH] [NEW_DIR_PATH]**
-  Recursively copies all contents of directory at “path” to directory at “different-path”, creating new directory at “different-path”. (Do not us “.” as the path argument to copy the contents of the current directory to “different-path” — this sets up an infinite recursive loop. Nothing good can come of that.)
+  Recursively copies all contents of directory at CURRENT_DIR_PATH to directory at NEW_DIR_PATH, creating new directory at NEW_DIR_PATH. (Do not us “**.**” as the CURRENT_DIR_PATH argument to copy its contents to a NEW_DIR_PATH *within* CURRENT_DIR_PATH — this sets up an infinite recursive loop. Nothing good can come of that.)
 
 #### echo [ARGUMENT] - *Echo*
 Prints the argument to the terminal.
 * **echo $[VARIABLE_NAME]**
-  Prints the value of the shell variable, such as USER or HOME, to the terminal. The $ symbol flags the following string as a variable name.
+  Prints the value of the shell variable, such as USER or HOME, to the terminal. The **$** symbol flags the following string as a variable name.
 
 #### env - *Environment*
 Prints variables and values defining the shell environment to screen.
@@ -43,25 +43,25 @@ Prints variables and values defining the shell environment to screen.
 #### exit - *Exit*
 Terminates the terminal session.
 
-#### export [VARIABLE-NAME]=[value] - *Export*
-Creates and assigns a value to a shell variable. Shell variable names must be all-caps. There can be no spaces between the variable name, the equal sign, and the value. String values must be in quotes.
+#### export [VARIABLE-NAME]=[VALUE] - *Export*
+Creates and assigns a VALUE to a shell variable VARIABLE_NAME. Shell variable names must be all-caps. There can be no spaces between the variable name, the equal sign, and the value. String values must be in quotes.
 
 #### file [FILENAME] - *File*
 Prints file type.
 
 #### find [START_DIR] -name [WILDCARD] -print — *Find file*
-Starts in directory START_DIR and searches for all files with names matching WILDCARD, and prints them to the terminal with their path relative to “startdir”.
+Starts in directory START_DIR and searches for all files with names matching WILDCARD, and prints them to the terminal with their path relative to START_DIR.
 
-#### grep [STRING] [FILENAME] - *"Grep” (or Search)*
-Searches for text “string” in text file FILENAME. If the target string includes spaces, it must be entered using quotes (e.g. “The Rolling Stones”); if it’s a single word, quotes are not necessary.
+#### grep [STRING] [FILENAME] - *Grep (or Search)*
+Searches for text STRING in text file FILENAME. If the STRING includes spaces, it must be entered using quotes (e.g. “The Rolling Stones”); if  STRING is a single word, quotes are not necessary.
 * **grep -i [STRING] [FILENAME]**
-  Case insensitive search for string; grep is case sensitive by default(?).
+  Case insensitive search for STRING; grep is case sensitive by default.
 * **grep -n [STRING] [FILENAME]**
-  Includes line number in file where string appears.
+  Includes line number in FILENAME where STRING appears.
 * **grep [STRING] [FILENAME] > [NEW_FILENAME]**
   Redirects output to new file NEW_FILENAME, instead of displaying on terminal; new file can then be displayed using **less** or edited with **subl**.
 * **grep [STRING] [FILENAME] | wc -l**
-  Pipes output to second bash command (in this case Word Count), and returns the output of the second command, operating on the output of the first command.
+  Pipes output to second bash command (in this case **wc**, word count), and returns the output of the second command, operating on the output of the first command.
 
 #### head [FILENAME] - *Head*
 Prints first ten lines of file to terminal.
@@ -74,30 +74,28 @@ Prints name of computer (not the user!) hosting terminal session.
 Prints help listing for command CMD_NAME; press **q** to return to command prompt. Similar to man.
 
 #### kill [PID] - *Kill*
-Terminates process identified by PID. (Use ps to find PID of process to be terminated.)
-* kill -9 [PID] Forces terminal to terminate identified process immediately; use only if regular kill doesn’t work. Does not allow process to clean up temp files, etc., before ending.
+Terminates process identified by PID. (Use **ps** to find PID of process to be terminated.)
+* **kill -9 [PID]** Forces terminal to terminate identified process immediately; use only if regular kill doesn’t work. Does not allow process to clean up temp files, etc., before ending.
 
 #### less [filename] - *“Less” Pager*
 Prints contents of file to screen, one screen at a time. Holds at end of file, and allows you to page back through the file.
+
 **_Commands within pager:_**
 * **Spacebar**  Page down to next screen.
 * **Return**  Advance (move down) one line.
-* **/[STRING]** Go to next instance of “string” in file.
-* **?[string]** Go to previous instance of “string” in file.
-* **n** Repeat previous search (“/” or “?”).
+* **/[STRING]** Go to next instance of STRING in file.
+* **?[STRING]** Go to previous instance of STRING in file.
+* **n** Repeat previous search (“**/**” or “**?**”).
 * **q** Exit pager, return to terminal prompt.
 * **w** Page up to previous screen.
 
 #### ls - *List*
 Prints listing of contents of current directory to terminal.
 * **ls**  Lists, by name only, unhidden files and directories in specified directory.
-* **ls /etc** Lists, by name only, all files in special directory “etc”.
 * **ls [path]** Lists contents of specified directory.
-* **ls -d** (Not quite sure what this does.)
+* **ls -d** Lists only directories, not files.
 * **ls -f** Lists hidden and unhidden files and directories in specified directory.
 * **ls -l** Lists directory contents with additional details (permissions, owner, size, date modified), one item per line.
-* **ls -l [FILENAME]**
-  Prints details about specified file.
 * **ls -R** Recursive. Lists all subdirectories, to the end of the directory tree.
 
 #### man [CMD_NAME] - *Manual*
@@ -110,7 +108,7 @@ Creates a new, empty directory within the current directory.
   Create all the missing directories in the specified path. For example, **mkdir tom/dick/harry** (without the -p flag) will create directory “tom/dick/harry” if and only if directories “tom” and “tom/dick” already exist. However, if “tom”, “tom/dick” and “tom/dick/harry” do not exist, **mkdir -p tom/dick/harry** will create "tom", then “tom/dick”, and then “tom/dick/harry”.
 
 #### more [FILENAME] - *“More” Pager*
-Prints contents of file to screen, one screen at a time. At end of file, returns user to bash prompt automatically, without allowing you to page backwards through the file.
+Prints contents of file FILENAME to screen, one screen at a time. At end of file, returns user to bash prompt automatically, without allowing you to page backwards through the file.
 
 **_Commands within pager:_**
 * **Spacebar**  Page down to next screen.
@@ -145,17 +143,17 @@ Deletes directory DIR_NAME, provided that the directory is empty.
 * **rmdir [PATH]**    Remove directory at specified location.
 
 #### strings [FILENAME] - *Strings*
-Finds and prints to the terminal all strings within an executable file.
+Finds and prints to the terminal all strings within an executable file FILENAME.
 
 #### subl - *Sublime text editor*
 Opens Sublime Text, if it has been specified in .gitconfig as preferred text editor.
 * **subl [FILENAME]** Opens specified file in Sublime.
-* **subl .** (subl /<dot/>) Opens current directory, along with all files and subdirectories, in Sublime.
+* **subl .**  Opens current directory, along with all files and subdirectories, in Sublime.
 
 #### sudo - *(Add entry)*
 
 #### tail [FILENAME] - *Tail*
-Prints last ten lines of file to terminal.
+Prints last ten lines of file FILENAME to terminal.
 * tail -[INTEGER] Prints last INTEGER lines of file to terminal.
 
 #### top - *Top*
@@ -165,15 +163,15 @@ Lists processes running on system.
 #### touch [FILENAME] - *Touch*
 Create a new file FILENAME in the current directory.
 
-#### unset [VARIABLE-NAME] - *Unset*
-Removes the value from the named environmental variable, effectively deleting the variable from the environment.
+#### unset [VARIABLE_NAME] - *Unset*
+Removes the value from the environmental variable VARIABLE_NAME, effectively deleting the variable from the environment.
 
 #### wc [FILENAME] - *Word Count*
-Counts words in the specified file.
+Counts words in the specified file FILENAME.
 * **wc -l** Returns line count instead of word count.
 
 #### wget [PATH_NAME][FILENAME] - *“W-Get” (or Retrieve)*
-Retrieves specified file into memory. Can be used with a URL as PATH_NAME to download file from internet.
+Retrieves specified file FILENAME into memory. Can be used with a URL as PATH_NAME to download file from internet.
 
 #### xargs - *(Add entry)*
 
