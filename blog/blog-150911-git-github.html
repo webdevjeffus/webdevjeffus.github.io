@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Version Control | git and GitHub</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <header>
+    <h1><a href="../index.html">webdevjeff.us</a></h1>
+    <p>Web Developer Jeff George</p>
+
+    <nav>
+      <ul>
+        <li><a href="../index.html">Work</a></li>
+        <li><a href="./index.html">Blog</a></li>
+        <li><a href="../index.html">About</a></li>
+        <li><a href="../index.html">Contact</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main>
+    <article>
+
+      <header>
+        <h2>Blog</h2>
+        <div class="blog-post-nav">
+          <a href="./blog-150920-bootcamp-vs-CS.html"><i class="fa fa-caret-right fa-2x"></i></a>
+          <a href="./index.html"><i class="fa fa-caret-left fa-2x"></i></a>
+        </div>
+      </header>
+
+      <article>
+
+        <header>
+          <p class="hammer">Version averse?</p>
+          <h3>Embracing version control with git and GitHub</h3>
+          <p>Sept. 11, 2015</p>
+        </header>
+
+          <p>I'd heard of version control before I got to Dev Bootcamp. (Technically, I'm not <em>at</em> Dev Bootcamp now &mdash; I'm in the first week of the 9-week remote preparation course DBC calls "Phase 0".) I'd made a GitHub and BitBucket accounts for online courses I took while teaching myself basic programming. I even did two short courses through Udemy that focused specifically on git and GitHub. But it still seemed like sorcery to me. I'd recite the incantations as best I could, and sometimes the right thing would happen, but I was never quite sure what had happened and why. Eventually, I'd get confused and frustrated, and go back to haphazardly archiving versions of my project in Dropbox folders, putting off <em>real</em> version control for later.</p>
+
+          <p>Well, now it's later. I'm enrolled in Dev Bootcamp, and the first week of Phase 0 is all about version control, so I can't avoid it any longer. Sure, some of the Week 1 assignments <em>say</em> they're about other things, but they're really mostly about practicing creating, forking, cloning, branching, pushing, pulling, and merging repositories on GitHub. I'm still not certain about everything that's going on, but at least I've learned the basics. Here's the little that I know...</p>
+
+          <h4>You can't afford to be version averse</h4>
+          <p>As a coder, you can sort of limp along without version control &mdash; as long as you're working alone. As soon as you want to collaborate with even one other developer, the risk of things going suddenly, sickeningly wrong goes up by several orders of magnitude. One person may save over another person's work, or delete key files, or have a brilliant idea for a feature you cut three versions back. Development teams need a system that lets them share project files, edit them, add to them, merge them back together, and archive them so that old versions can be recovered and restored if necessary. A real version control system &mdash; like git and GitHub &mdash; does all that for you.</p>
+
+          <p>Here's what version control does, in a nutshell. A master repository for all the files that make up the project is created on a system that is accessable to all members of the development team. Each team member can download (pull) a copy (branch) to her own computer and work on any and all files...while everyone else is also working with the same files! At appropriate intervals, each team can upload (push) their branch back up to the master repository, compare (compare, believe it not) their files to those in the master branch, resolve any conflicts between the two versions that are discovered during the comparison, and them merge their changes into the master branch. A complete archive of the entire project is saved with every such update, along with a message detailing the changes made; if necessary, all or part of any archived version can be recovered and re-incorporated into the ongoing project.</p>
+
+          <p>With version control, you no longer have to worry about losing work when someone accidentally saves over or deletes a teammate's files. If a fatal error gets coded into the project, you can roll back to the last version without the problem, instead of starting over from scratch. And if you want to explore different options for the project &mdash; such as whether or not to redesign the interface or include controversial features &mdash; the team can create a separate branch (called a fork) and continue to develop both versions in parallel, eventually deciding whether to merge them back together, or to abandon one fork entirely. Version control offers development teams both security and options that aren't available any other way.</p>
+
+          <h4>git'er done with GitHub</h4>
+          <p>Once you've decided to use version control, you have to pick a system to use. Unless you're required by a client or employer to use another, the best choice today is git and GitHub, which is the most popular version control system and service in the open-source web-development community. It's the pairing that everyone knows, and everyone expects you to be comfortable with. The git software is free to download and install, and GitHub serves the open-source community by offering their services and servers for free for all public repositories. But what's the difference between git and GitHub, and why would anyone need both?</p>
+
+          <p><strong><a href="https://git-scm.com/">git</a></strong> is a version-control system originally invented by Linus Torvalds to support the open-source development of the Linux operating system. It is a program that is installed on your own computer, where it saves and manages file repositories locally. git is best operated using the command line, instead through a graphic user interface &mdash; which is part of why it's daunting to learn for many modern computer users.</p>
+
+          <p><strong><a href="https://github.com/">GitHub</a></strong> is an internet-based service which allows users to store and share their git repositories online, enabling teams of developers to communicate and collaborate on version-controlled projects regardless of their physical location. Users manage their online repositories using GitHub's graphical interface, but local git operations must still be performed from the command line. GitHub relies upon git, but git is not limited to GitHub; git can be used locally without GitHub, or in conjunction with a rival service such as BitBucket. GitHub is free to use for public repositories, but charges a fee for hosting private repos.</p>
+
+          <h4>Now git going!</h4>
+          <p>To install git, you'll need to follow the directions at <a href="https://git-scm.com/">the git website</a> &mdash; the procedure will vary according to your operating system. It's easy to <a href="https://github.com/">make a GitHub account</a>, though, and tutorials on the GitHub site will help you get started using it.</p>
+          <p>Once you've installed git and made your GitHub account, you may (or may not) find these walk-throughs of common git tasks helpful:</p>
+
+          <ul>
+            <li><a href="https://github.com/webdevjeffus/webdevjeffus.github.io/blob/master/blog/git-create-repo.md">Create a GitHub Repo</a> &mdash; How to create a new repository on GitHub and clone it to your local system</li>
+            <li><a href="https://github.com/webdevjeffus/phase-0/blob/master/week-1/git-workflow-ref.md">git Workflow Walk-through</a> &mdash; How to begin and end each day of software development in a git-controlled project.</li>
+          </ul>
+
+      </article>
+
+    </article>
+
+    <aside>
+
+      <section>
+        <h3>About Jeff George</h3>
+        <img src="../imgs/profile-jeff-george.jpg" alt="Jeff George">
+        <div class="twitter-follow">
+          <i class="fa fa-twitter fa-lg"></i>
+          <a href="https://twitter.com/webdevjeffus">Follow @webdevjeffus</a>
+        </div>
+      </section>
+
+      <section>
+        <h4>Bio</h4>
+        <p>
+          As I write this blog post, I am enrolled in <a href="http://devbootcamp.com/">Dev Bootcamp</a>, an immersive web-development program in New York City. I'm currently in Phase 0 of the Dev Bootcamp program, a remote-learning phase in which we gain a strong grasp of the basics of technologies like HTML5, CSS3, Ruby, and JavaScript through both independent work and pair-programming. In a few weeks, I'll join the rest of my cohort at the DBC-NY campus in Manhattan's Financial District, for onsite training in technologies and techniques including Ruby on Rails, SQL, test-driven development and agile development.
+        </p>
+        <p>
+          In the years before Dev Bootcamp, I've worked as a teacher, a photographer, a writer and editor, and even as a game designer. Throughout my career, all of my work has revolved around creative communication and problem-solving, and I'm excited to bring that background to the internet as a web developer.
+        </p>
+        <p>
+          I've lived and worked in Austin, TX, San Mateo, CA, and Phoenix, AZ, but for the past two decades, I've been in New York City. I settled in historic <a href="https://en.wikipedia.org/wiki/City_Island,_Bronx">City Island, the Bronx</a> &mdash; New York City's maritime community &mdash; in 2007, with my wife and daughter.</p>
+      </section>
+
+      <section>
+        <h4>Contact</h4>
+        <a href="mailto:webdevjeffus@gmail.com"><i class="fa fa-envelope-o fa-lg"></i></a>
+        <a href="https://www.linkedin.com/in/webdevjeffus"><i class="fa fa-linkedin-square fa-lg"></i></a>
+        <a href="https://github.com/webdevjeffus"><i class="fa fa-github-square fa-lg"></i></a>
+      </section>
+
+    </aside>
+
+  </main>
+
+  <footer>
+    <p>
+      <a href="webdevjeffus.github.io/index.html">Jeff George</a> - All content is <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC-By-NC-SA</a> unless otherwise noted.
+    </p>
+  </footer>
+
+</body>
+
+</html>
+
+
+<!--
+# BLOG TEMPLATE REFLECTION QUESTIONS
+### By Jeff George, 9.19.15, for DBC Phase 0
+
+#### How was it to wireframe and create an HTML page with a pair?
+
+In all honesty, I am not sure that wireframing and cranking out a basic HTML file benefits greatly from direct pairing. We decided to give pairing our best shot, working on a single wireframe and a single HTML template in a driver/navigator arrangement. Because we are relatively new to web development, working together that closely did have some educational benefit - there were definitely places where one of us knew how to do something that the other one didn't, and that happened in both directions. Yet I am not sure that the benefit of pairing on this sort of task (which consists basically of knowing and applying rules, rather than thinking through processes or algoriths) would carry over for more experienced developers. While we got along fine, and cooperated well, I am unconvinced that experienced developers would have benefitted much from collaborating on a task this basic.
+
+That being said, I don't mean to condemn pair programming in general. I totally see how pairing would be very beneficial for even very experienced developers working on complex or difficult problems and projects. I guess my point is that whatever the experience level of the developers, pairing adds far more value when the developers are working at the edge of their ability. If they are doing fairly routine tasks - like writing a basic HTML template - I don't see that two people working together are even close to twice as effective as one person.
+
+#### Did you find wireframing to be helpful to your development process?
+
+In my work prior to DBC, I would usually scrawl a quick pencil sketch of my general idea for a page on a post-it note, then jump right into the HTML and CSS. I didn't spend more than a few minutes on that sketch, and deferred most of the detailed planning until I was in the editor.
+
+Now that I'm learning a more formal development process, I can see that working with Balsamiq to create a detailed wireframe prior to beginning any work in HTML has significant benefits to quality, efficiency, and especially consistency. Doing so gives you an opportunity to plan out the page element by element, assuring that every single header, link, and icon is accounted for.
+
+#### What did you and your pair decide made a good wireframe?
+
+We didn't talk about "what made a good wireframe" in the abstract, but we called our wireframe done when we were sure we'd included every element we could imagine needing to include on the page, and had agreed on the prominence and position of each element.
+
+#### What new semantic elements did you learn about (if any) ?
+
+In preparing for this challenge, I read up on HTML outlining, and the proper use of the <main>, <article>, <section>, <header> and <footer> elements. For example, I learned that while each page can only have one <main> element, each self-contained block of content, including <body>, <main>, <article>, <section> and <aside> can have a <header> at its beginning, and a <footer> at its end.
+
+I also learned quite a bit about coding headings. For instance, if you are adding a subheading right under a heading, only the heading goes in an <h_> tag; the subheading or byline should be put in a <p> tag and styled with CSS. This is because if you immediately follow one heading, such as an <h1>, with another, smaller heading, such as an <h3>, screenreaders and outliners will be confused because the first heading appears to have no content.
+
+And although I never really used it, I read that the <hgroup> tag is officially not just deprecated, but completely obsolete. In HTML5, you would use the <header> element as an approximate analog for the old <hgroup>.
+
+-->
