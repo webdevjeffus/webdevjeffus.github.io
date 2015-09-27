@@ -1,0 +1,19 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Jeff George -- Project Lead -- @webdevjeffus
+
+# THANKS
+
+    J. Ky Marsh -- @jkymarsh
+    Bruno Zatta -- @brunation11
+    Paul Irish -- @paul_irish
+    Dev Bootcamp -- @devbootcamp
+    Free Software Foundation -- http://fsf.org/
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    HTML5Boilerplate (H5BP), normalize.css, HTML5Shiv

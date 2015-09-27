@@ -1,0 +1,52 @@
+/* Main CSS with GRIDDY Media Queries */
+
+/**** STYLES FOR ALL SCREEN WIDTHS ****/
+
+
+
+
+
+
+
+
+
+
+/**** SCREEN-WIDTH-DEPENDENT STYLES ****/
+
+/* PHONE - fluid 320-400px; 1rem = 12px */
+/* (Mobile-first: no media query required) */
+
+
+
+
+
+
+
+/* TABLET - 680px; 1rem = 14px */
+@media only screen and (min-width: 680px) {
+
+
+
+
+
+}
+
+
+/* COMPUTER (small monitor) - 960px; 1rem = 16px */
+@media only screen and (min-width: 960px) {
+
+
+
+
+
+}
+
+
+/* COMPUTER (desktop) - 1120px; 1rem = 19px */
+@media only screen and (min-width: 1200px) {
+
+
+
+
+
+}
