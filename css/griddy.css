@@ -116,14 +116,11 @@ img {
 html {
   font-size: 12px;
   line-height: 1.4;
-  color: blue;            /* Test value; reset */
-  background-color: #ccc; /* Test value; reset */
 }
 
 body {
   min-width: 320px;
   max-width: 400px;
-  background-color: #eee; /* Test value; reset */
 }
 
 .row:after {
@@ -182,7 +179,6 @@ body {
 
   html {
     font-size: 14px;
-    color: green; /* Test value; reset */
   }
 
   body {
@@ -258,7 +254,6 @@ body {
 
   html {
     font-size: 16px;
-    color: black; /* Test value; reset */
   }
 
   body {
@@ -337,7 +332,6 @@ body {
 
   html {
     font-size: 19px;
-    color: red; /* Test value; reset */
   }
 
   body {
