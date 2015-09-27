@@ -1,6 +1,54 @@
-/* Main CSS with GRIDDY Media Queries */
+/* WEBDEVJEFF.US/CSS/MAIN.CSS with GRIDDY Media Queries */
+
+/******** COLOR VALUES ********\
+
+White   High: rgb(255,255,255); /* Hi Wht *
+        Med:  rgb(247,247,247); /* Md Wht *
+        Low:  rgb(204,204,204); /* Lo Wht *
+
+Black   High: rgb( 64, 64, 64); /* Hi Blk *
+        Med:  rgb( 18, 18, 18); /* Md Blk *
+        Low:  rgb(  0,  0,  0); /* Lo Blk *
+
+Red     High: rgb(255, 63, 71); /* Hi Red *
+        Med:  rgb(173, 43, 48); /* Md Red *
+        Low:  rgb(127, 32, 35); /* Lo Red *
+
+Blue    High: rgb( 81, 94,255); /* Hi Blu *
+        Med:  rgb( 52, 60,163); /* Md Blu *
+        Low:  rgb( 41, 47,127); /* Lo Blu *
+
+Green   High: rgb( 32,204,124); /* Hi Grn *
+        Med:  rgb( 18,115, 70); /* Md Grn *
+        Low:  rgb( 10, 64, 39); /* Lo Grn *
+
+\****** END COLOR VALUES ******/
+
+
 
 /**** STYLES FOR ALL SCREEN WIDTHS ****/
+
+html {
+  font-family: 'Open Sans', sans-serif;
+  color: rgb( 64, 64, 64); /* Hi Blk */
+  background-color: rgb(204,204,204); /* Lo Wht */
+}
+
+body {
+  background-color: rgb(247,247,247); /* Md Wht */
+}
+
+h1,
+h2 {
+  font-family: 'Permanent Marker', cursive;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Walter Turncoat', cursive;
+}
 
 
 
