@@ -65,6 +65,7 @@ textarea {
 
 body {
   margin: 0 auto;
+  padding: 0;
 }
 
 h1,
@@ -118,7 +119,7 @@ html {
   line-height: 1.4;
 }
 
-body {
+.container {
   min-width: 320px;
   max-width: 400px;
 }
@@ -181,7 +182,7 @@ body {
     font-size: 14px;
   }
 
-  body {
+  .container {
     width: 680px;
     max-width: 680px;
   }
@@ -334,7 +335,7 @@ body {
     font-size: 19px;
   }
 
-  body {
+  .container {
     width: 1200px;
     max-width: 1200px;
   }
