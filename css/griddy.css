@@ -68,26 +68,6 @@ body {
   padding: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0 0 0.75rem 0;
-}
-
-h1:first-child,
-h2:first-child,
-h3:first-child,
-h4:first-child,
-h5:first-child,
-h6:first-child,
- p:first-child {
-  margin-top: 0.75rem;
-}
-
 article,
 aside,
 section,
@@ -98,6 +78,31 @@ footer,
 nav {
   padding: 0;
 }
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  line-height: 1.4;
+  margin: 0 0 0.75rem 0;
+}
+
+/*
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child,
+ p:first-child {
+  margin-top: 0.75rem;
+}
+*/
+
 
 
 img {
@@ -116,12 +121,13 @@ img {
 
 html {
   font-size: 12px;
-  line-height: 1.4;
+
 }
 
 .container {
   min-width: 320px;
   max-width: 400px;
+  margin: 0 auto;
 }
 
 .row:after {
@@ -130,31 +136,7 @@ html {
   clear: both;
 }
 
-.ph-col-1  { width:   8.333%; float: left;}
-.ph-col-2  { width:  16.667%; float: left;}
-.ph-col-3  { width:  25%;     float: left;}
-.ph-col-4  { width:  33.333%; float: left;}
-.ph-col-5  { width:  41.667%; float: left;}
-.ph-col-6  { width:  50%;     float: left;}
-.ph-col-7  { width:  58.333%; float: left;}
-.ph-col-8  { width:  66.667%; float: left;}
-.ph-col-9  { width:  75%;     float: left;}
-.ph-col-10 { width:  83.333%; float: left;}
-.ph-col-11 { width:  91.667%; float: left;}
-.ph-col-12 { width: 100%;}
-
-.box.ph-col-1  { width:   6.333%; float: left; }
-.box.ph-col-2  { width:  14.667%; float: left; }
-.box.ph-col-3  { width:  23%;     float: left; }
-.box.ph-col-4  { width:  31.333%; float: left; }
-.box.ph-col-5  { width:  39.667%; float: left; }
-.box.ph-col-6  { width:  48%;     float: left; }
-.box.ph-col-7  { width:  56.333%; float: left; }
-.box.ph-col-8  { width:  64.667%; float: left; }
-.box.ph-col-9  { width:  73%;     float: left; }
-.box.ph-col-10 { width:  81.333%; float: left; }
-.box.ph-col-11 { width:  89.667%; float: left; }
-.box.ph-col-12 { width:  98%; }
+/* Insert block (e.g. image, quote) into text */
 
 .ph-ins-25,
 .ph-ins-33,
@@ -167,11 +149,42 @@ html {
 .ph-ins-33 { width: 33%; }
 .ph-ins-50 { width: 50%; }
 
+/* Column-width classes; specify columns to span at phone width */
+
+.ph-col-1  { width:   8.333%; float: left; }
+.ph-col-2  { width:  16.667%; float: left; }
+.ph-col-3  { width:  25%;     float: left; }
+.ph-col-4  { width:  33.333%; float: left; }
+.ph-col-5  { width:  41.667%; float: left; }
+.ph-col-6  { width:  50%;     float: left; }
+.ph-col-7  { width:  58.333%; float: left; }
+.ph-col-8  { width:  66.667%; float: left; }
+.ph-col-9  { width:  75%;     float: left; }
+.ph-col-10 { width:  83.333%; float: left; }
+.ph-col-11 { width:  91.667%; float: left; }
+.ph-col-12 { width: 100%;     float: left; }
+
+.box.ph-col-1  { width:   6.333%; float: left; }
+.box.ph-col-2  { width:  14.667%; float: left; }
+.box.ph-col-3  { width:  23%;     float: left; }
+.box.ph-col-4  { width:  31.333%; float: left; }
+.box.ph-col-5  { width:  39.667%; float: left; }
+.box.ph-col-6  { width:  48%;     float: left; }
+.box.ph-col-7  { width:  56.333%; float: left; }
+.box.ph-col-8  { width:  64.667%; float: left; }
+.box.ph-col-9  { width:  73%;     float: left; }
+.box.ph-col-10 { width:  81.333%; float: left; }
+.box.ph-col-11 { width:  89.667%; float: left; }
+.box.ph-col-12 { width:  98%;     float: left; }
+
+/* Hide element */
+
 .ph-hide-inl,
 .ph-hide-blk,
 .ph-hide-ib {
   display: none;
 }
+
 
 
 /* TABLET - 680px */
@@ -187,31 +200,8 @@ html {
     max-width: 680px;
   }
 
-  .tab-col-1  { width:   8.333%; float: left; }
-  .tab-col-2  { width:  16.667%; float: left; }
-  .tab-col-3  { width:  25%;     float: left; }
-  .tab-col-4  { width:  33.333%; float: left; }
-  .tab-col-5  { width:  41.667%; float: left; }
-  .tab-col-6  { width:  50%;     float: left; }
-  .tab-col-7  { width:  58.333%; float: left; }
-  .tab-col-8  { width:  66.667%; float: left; }
-  .tab-col-9  { width:  75%;     float: left; }
-  .tab-col-10 { width:  83.333%; float: left; }
-  .tab-col-11 { width:  91.667%; float: left; }
-  .tab-col-12 { width: 100%; }
 
-  .box.tab-col-1  { width:   6.333%; float: left; }
-  .box.tab-col-2  { width:  14.667%; float: left; }
-  .box.tab-col-3  { width:  23%;     float: left; }
-  .box.tab-col-4  { width:  31.333%; float: left; }
-  .box.tab-col-5  { width:  39.667%; float: left; }
-  .box.tab-col-6  { width:  48%;     float: left; }
-  .box.tab-col-7  { width:  56.333%; float: left; }
-  .box.tab-col-8  { width:  64.667%; float: left; }
-  .box.tab-col-9  { width:  73%;     float: left; }
-  .box.tab-col-10 { width:  81.333%; float: left; }
-  .box.tab-col-11 { width:  89.667%; float: left; }
-  .box.tab-col-12 { width:  98%; }
+/* Deactivate insert element at phone width */
 
   .ph-ins-25,
   .ph-ins-33,
@@ -220,6 +210,9 @@ html {
     float: none;
     padding-left: 0;
   }
+
+
+/* Insert block (e.g. image, quote) into text */
 
   .tab-ins-12,
   .tab-ins-17,
@@ -242,9 +235,50 @@ html {
   .tab-ins-67 { width: 66.7%; }
   .tab-ins-75 { width: 75%;   }
 
+
+/* Column-width classes; specify columns to span at phone width */
+
+  .tab-col-1  { width:   8.333%; float: left; }
+  .tab-col-2  { width:  16.667%; float: left; }
+  .tab-col-3  { width:  25%;     float: left; }
+  .tab-col-4  { width:  33.333%; float: left; }
+  .tab-col-5  { width:  41.667%; float: left; }
+  .tab-col-6  { width:  50%;     float: left; }
+  .tab-col-7  { width:  58.333%; float: left; }
+  .tab-col-8  { width:  66.667%; float: left; }
+  .tab-col-9  { width:  75%;     float: left; }
+  .tab-col-10 { width:  83.333%; float: left; }
+  .tab-col-11 { width:  91.667%; float: left; }
+  .tab-col-12 { width: 100%;     float: left; }
+
+  .box.tab-col-1  { width:   6.333%; float: left; }
+  .box.tab-col-2  { width:  14.667%; float: left; }
+  .box.tab-col-3  { width:  23%;     float: left; }
+  .box.tab-col-4  { width:  31.333%; float: left; }
+  .box.tab-col-5  { width:  39.667%; float: left; }
+  .box.tab-col-6  { width:  48%;     float: left; }
+  .box.tab-col-7  { width:  56.333%; float: left; }
+  .box.tab-col-8  { width:  64.667%; float: left; }
+  .box.tab-col-9  { width:  73%;     float: left; }
+  .box.tab-col-10 { width:  81.333%; float: left; }
+  .box.tab-col-11 { width:  89.667%; float: left; }
+  .box.tab-col-12 { width:  98%;     float: left; }
+
+
+/* Restore elements hidden at phone width */
+
   .ph-hide-inl  { display: inline; }
   .ph-hide-blk  { display: block;  }
-  .ph-hide-ib   { display: none;   }
+  .ph-hide-ib   { display: inline-block;   }
+
+/* Hide elements at tablet width */
+
+  .tab-hide-inl,
+  .tab-hide-blk,
+  .tab-hide-ib {
+    display: none;
+  }
+
 
 }
 
@@ -257,36 +291,10 @@ html {
     font-size: 16px;
   }
 
-  body {
+  .container {
     width: 960px;
     max-width: 960px;
   }
-
-  .cmp-col-1  { width:   8.333%; float: left; }
-  .cmp-col-2  { width:  16.667%; float: left; }
-  .cmp-col-3  { width:  25%;     float: left; }
-  .cmp-col-4  { width:  33.333%; float: left; }
-  .cmp-col-5  { width:  41.667%; float: left; }
-  .cmp-col-6  { width:  50%;     float: left; }
-  .cmp-col-7  { width:  58.333%; float: left; }
-  .cmp-col-8  { width:  66.667%; float: left; }
-  .cmp-col-9  { width:  75%;     float: left; }
-  .cmp-col-10 { width:  83.333%; float: left; }
-  .cmp-col-11 { width:  91.667%; float: left; }
-  .cmp-col-12 { width: 100%; }
-
-  .box.cmp-col-1  { width:   6.333%; float: left; }
-  .box.cmp-col-2  { width:  14.667%; float: left; }
-  .box.cmp-col-3  { width:  23%;     float: left; }
-  .box.cmp-col-4  { width:  31.333%; float: left; }
-  .box.cmp-col-5  { width:  39.667%; float: left; }
-  .box.cmp-col-6  { width:  48%;     float: left; }
-  .box.cmp-col-7  { width:  56.333%; float: left; }
-  .box.cmp-col-8  { width:  64.667%; float: left; }
-  .box.cmp-col-9  { width:  73%;     float: left; }
-  .box.cmp-col-10 { width:  81.333%; float: left; }
-  .box.cmp-col-11 { width:  89.667%; float: left; }
-  .box.cmp-col-12 { width:  98%; }
 
   .ph-ins-25,
   .ph-ins-33,
@@ -324,7 +332,50 @@ html {
   .cmp-ins-62 { width: 62.5%; }
   .cmp-ins-67 { width: 66.7%; }
   .cmp-ins-75 { width: 75%;   }
+
+
+  .cmp-col-1  { width:   8.333%; float: left; }
+  .cmp-col-2  { width:  16.667%; float: left; }
+  .cmp-col-3  { width:  25%;     float: left; }
+  .cmp-col-4  { width:  33.333%; float: left; }
+  .cmp-col-5  { width:  41.667%; float: left; }
+  .cmp-col-6  { width:  50%;     float: left; }
+  .cmp-col-7  { width:  58.333%; float: left; }
+  .cmp-col-8  { width:  66.667%; float: left; }
+  .cmp-col-9  { width:  75%;     float: left; }
+  .cmp-col-10 { width:  83.333%; float: left; }
+  .cmp-col-11 { width:  91.667%; float: left; }
+  .cmp-col-12 { width: 100%;     float: left; }
+
+  .box.cmp-col-1  { width:   6.333%; float: left; }
+  .box.cmp-col-2  { width:  14.667%; float: left; }
+  .box.cmp-col-3  { width:  23%;     float: left; }
+  .box.cmp-col-4  { width:  31.333%; float: left; }
+  .box.cmp-col-5  { width:  39.667%; float: left; }
+  .box.cmp-col-6  { width:  48%;     float: left; }
+  .box.cmp-col-7  { width:  56.333%; float: left; }
+  .box.cmp-col-8  { width:  64.667%; float: left; }
+  .box.cmp-col-9  { width:  73%;     float: left; }
+  .box.cmp-col-10 { width:  81.333%; float: left; }
+  .box.cmp-col-11 { width:  89.667%; float: left; }
+  .box.cmp-col-12 { width:  98%;     float: left;}
+
+/* Restore elements hidden at phone width */
+
+  .ph-hide-inl, .tab-hide-inl  { display: inline; }
+  .ph-hide-blk, .tab-hide-blk  { display: block;  }
+  .ph-hide-ib,  .tab-hide-ib   { display: inline-block; }
+
+/* Hide elements at tablet width */
+
+  .cmp-hide-inl,
+  .cmp-hide-blk,
+  .cmp-hide-ib {
+    display: none;
+  }
+
 }
+
 
 
 /* COMPUTER (desktop) - 1120px */
@@ -388,12 +439,18 @@ html {
 
 
 /* Add or remove space above element - usually <h_> or <p> */
-.headroom    { padding-top: 0.75rem; }
-.no-headroom { padding-top: 0; }
+.headroom    { padding-top: 1rem; }
+.no-headroom {
+  padding-top: 0;
+  margin-top: 0;
+}
 
 /* Add or remove space below element - usually <h_> or <p> */
-.footroom    { margin-bottom: 0.75em; }
-.no-footroom { margin-bottom: 0; }
+.footroom    { margin-bottom: 1em; }
+.no-footroom {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
 
 
 .txt-ctr { text-align: center; }

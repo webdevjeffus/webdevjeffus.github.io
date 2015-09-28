@@ -41,20 +41,17 @@ body {
   top: -9px;
 }
 
-.container {
-  background-color: rgb(247,247,247); /* Md Wht */
-}
-
 h1,
 h2 {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Permanent Marker', 'Comic Sans MS', sans-serif;
+  letter-spacing: 0.1rem;
 }
 
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'Walter Turncoat', cursive;
+  font-family: 'Walter Turncoat', 'Comic Sans MS', sans-serif;
 }
 
 a:link {
@@ -72,9 +69,25 @@ a:hover, a:active {
 }
 
 
+.container {
+  margin: 0 auto;
+  background-color: rgb(247,247,247); /* Md Wht */
+}
+
 
 .border-top {
   border-top: 1px solid rgb( 41, 47,127); /* Lo Blu */
+}
+
+.box-item {
+  background-color: rgb(204,204,204); /* Lo Wht */
+  color: rgb(  0,  0,  0); /* Lo Blk */
+  border: 1px solid rgb(  0,  0,  0); /* Lo Blk */
+}
+
+.section--head {
+  color: rgb( 52, 60,163); /* Md Blu */
+  font-size: 2.0rem;
 }
 
 
@@ -83,10 +96,44 @@ a:hover, a:active {
 .masthead {
   background-color: rgb( 18, 18, 18); /* Md Blk */
   color: rgb(173, 43, 48); /* Md Red */
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 .masthead--logo {
   font-size: 3rem;
+}
+
+.masthead--subhead {
+  color: rgb( 81, 94,255); /* Hi Blu */
+  float: left;
+}
+
+.masthead--nav {
+  list-style: none;
+  float: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.masthead--nav-item {
+  display: inline-block;
+  font-weight: bold;
+  padding: 0 1rem;
+  border-left: 1px solid rgb( 64, 64, 64); /* Hi Blk */
+}
+
+.masthead--nav-link:link,
+.masthead--nav-link:visited {
+  color: rgb( 18,115, 70); /* Md Grn */
+  text-decoration: none;
+}
+
+.masthead--nav-link:hover,
+.masthead--nav-link:active {
+  color: rgb( 32,204,124); /* Hi Grn */
+  text-decoration: underline;
 }
 
 
@@ -99,6 +146,7 @@ a:hover, a:active {
   background-position: center center;
   background-size: 350px;
   height: 525px;
+
 }
 
 .splash--head {
@@ -106,13 +154,22 @@ a:hover, a:active {
   padding-top: 5rem;
   color: rgb(173, 43, 48); /* Md Red */
   text-shadow: -3px -3px 2px rgb(255,255,255), 3px 3px 2px rgb(255,255,255);
+  margin-top: 0;
 }
 
 .splash--text {
-  font-family: 'Walter Turncoat', cursive;
+  font-family: 'Walter Turncoat', 'Comic Sans MS', sans-serif;
   font-size: 1.5rem;
   color: rgb( 52, 60,163); /* Md Blu */
   text-shadow: -2px -2px rgb(255,255,255), 2px 2px rgb(255,255,255);
+}
+
+
+/** Work Panel Styles **/
+
+.work--head {
+  font-size: 1.6rem;
+  margin-bottom: 0;
 }
 
 
@@ -122,15 +179,18 @@ a:hover, a:active {
 
 }
 
-.box-item {
-  background-color: rgb(204,204,204); /* Lo Wht */
-  color: rgb(  0,  0,  0); /* Lo Blk */
-  border: 1px solid rgb(  0,  0,  0); /* Lo Blk */
+.blog--title {
+  font-size: 1.6rem;
+  padding-top: 0.75rem;
+  margin-bottom: 0.25rem;
 }
 
-.blog--closer {
-  font-family: 'Walter Turncoat', cursive;
-  font-size: 1.2rem;
+
+
+.blog--footer {
+  font-family: 'Walter Turncoat', 'Comic Sans MS', sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.4rem;
   text-align: center;
 }
 
@@ -173,7 +233,9 @@ a:hover, a:active {
 /* TABLET - 680px; 1rem = 14px */
 @media only screen and (min-width: 680px) {
 
-
+.masthead--logo {
+  margin-bottom: 0;
+}
 
 
 
@@ -197,4 +259,11 @@ a:hover, a:active {
 
 
 
+}
+
+
+/**** DEBUG BORDER ****/
+
+.debug {
+  border: 1px magenta solid;
 }
