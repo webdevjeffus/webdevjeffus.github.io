@@ -30,18 +30,18 @@
 
 <body>
   <div class="container">
-    <header class="masthead row">
+    <header class="masthead ref-pt row">
       <div class="gtr-2x">
         <h1 class="masthead--logo">webdevjeff.us</h1>
-        <p class="ph-hide-blk">Web Developer Jeff George</p>
+        <p class="masthead--subhead ph-hide-blk">Web Developer Jeff George</p>
       </div>
 
       <nav class="ph-hide-blk">
-        <ul>
-          <li><a href="#portfolio">Work</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+        <ul class="masthead--nav">
+          <a class="masthead--nav-link" href="#portfolio"><li class="masthead--nav-item">Work</li></a>
+          <a class="masthead--nav-link" href="#blog"     ><li class="masthead--nav-item">Blog</li></a>
+          <a class="masthead--nav-link" href="#about"    ><li class="masthead--nav-item">About</li></a>
+          <a class="masthead--nav-link" href="#contact"  ><li class="masthead--nav-item">Contact</li></a>
         </ul>
       </nav>
 
@@ -60,31 +60,31 @@
       <section id="portfolio" class="border-top">
 
         <header class="row gtr txt-ctr">
-          <h2 class="ph-col-12 gtr">Here are some things I've already made...</h2>
+          <h2 class="section--head ph-col-12 headroom gtr">Here are some things I've already made...</h2>
         </header>
 
         <div class="row gtr"><!-- projects -->
-          <article class="ph-col-6 gtr">
+          <article class="ph-col-6 cmp-col-3 gtr">
             <img src="http://placehold.it/400x250/AD2B30/F7F7F7?text=Project+1" alt="Project 1">
-            <h3>Project 1</h3>
+            <h3 class="work--head">Project 1</h3>
             <p>Farm-to-table seitan tofu Helvetica. Banksy shabby chic flexitarian asymmetrical.</p>
           </article>
 
-          <article class="ph-col-6 gtr">
+          <article class="ph-col-6 cmp-col-3 gtr">
             <img src="http://placehold.it/400x250/343CA3/F7F7F7?text=Project+2" alt="Project 2">
-            <h3>Project 2</h3>
+            <h3 class="work--head">Project 2</h3>
             <p>Post-ironic literally craft beer, Tumblr gentrify selfies distillery cronut skateboard ethical swag. </p>
           </article>
 
-          <article class="ph-col-6 gtr">
+          <article class="ph-col-6 cmp-col-3 gtr">
             <img src="http://placehold.it/400x250/404040/F7F7F7?text=Project+3" alt="Project 3">
-            <h3>Project 3</h3>
+            <h3 class="work--head">Project 3</h3>
             <p>Helvetica mustache Williamsburg forage meggings organic.</p>
           </article>
 
-          <article class="ph-col-6 gtr">
+          <article class="ph-col-6 cmp-col-3 gtr">
             <img src="http://placehold.it/400x250/127346/F7F7F7?text=Project+4" alt="Project 4">
-            <h3>Project 4</h3>
+            <h3 class="work--head">Project 4</h3>
             <p>Fashion axe VHS tilde High Life, direct trade cliche hoodie Carles listicle craft beer.</p>
           </article>
         </div><!-- /projects -->
@@ -95,31 +95,31 @@
       <section id="blog" class="blog border-top">
 
         <header class="row txt-ctr gtr">
-          <h2 class="ph-col-12 gtr">Here are some things I was thinking while I made them...</h2>
+          <h2 class="section--head ph-col-12 headroom gtr">Here are some things I was thinking while I made them...</h2>
         </header>
 
         <div class="row gtr">
-          <article class="box-item box">
-            <h3><a href="./blog/blog-150920-bootcamp-vs-CS.html">Apples to oranges</a></h3>
+          <article class="ph-col-12 tab-col-6 cmp-col-4 box-item box">
+            <h3 class="blog--title"><a href="./blog/blog-150920-bootcamp-vs-CS.html">Apples to oranges</a></h3>
             <p>Sept. 20, 2015</p>
             <p>One of the biggest questions about immersive web development programs, commonly called “coding bootcamps,” is how their graduates compare to graduates from traditional college CS programs. Bootcamp critics claim that there’s no way you can learn as much in 10 or 12 weeks...</p>
           </article>
 
-          <article class="box-item box">
-            <h3><a href="./blog/blog-150911-git-github.html">Version averse?</a></h3>
+          <article class="ph-col-12 tab-col-6 cmp-col-4 box-item box">
+            <h3 class="blog--title"><a href="./blog/blog-150911-git-github.html">Version averse?</a></h3>
             <p>Sept. 11, 2015</p>
             <p>I'd heard of version control before I got to Dev Bootcamp. I'd made a GitHub and BitBucket accounts for online courses I took while teaching myself basic programming. I even did two short courses through Udemy that focused specifically on git and GitHub....</p>
           </article>
 
-          <article class="box-item box">
-            <h3>One More Blog Post</h3>
+          <article class="ph-col-12 tab-col-12 tab-hide-blk cmp-col-4 box-item box">
+            <h3 class="blog--title"><a href="#">One More Blog Post</a></h3>
             <p>Sept. 10, 2015</p>
             <p>Ethical lomo swag selfies art party, meditation deep v seitan try-hard. Ennui Godard meggings readymade cliche cray, shabby chic roof party before they sold out gluten-free. Etsy 90's drinking vinegar, Pinterest slow-carb cronut mixtape...</p>
           </article>
         </div>
 
-        <footer class="row gtr">
-          <p class="blog--closer gtr">...and here are some more of <a href="./blog/index.html">my posts</a> about web development.</p>
+        <footer class="row headroom footroom gtr">
+          <p class="blog--footer gtr">...and here are some more of <a href="./blog/index.html">my posts</a> about web development.</p>
         </footer>
 
       </section><!-- /class="blog" -->
@@ -127,23 +127,24 @@
 
       <section id="about" class="about border-top">
         <header class="row gtr">
-          <h2 class="ph-col-12 txt-ctr">Here are some things you should know about me...</h2>
+          <h2 class="section--head ph-col-12 headroom txt-ctr">Here are some things you should know about me...</h2>
         </header>
 
         <div class="row gtr">
-          <div>
-            <img class="ph-ins-50" src="./img/profile-jeff-george.jpg" alt="Jeff George">
+          <div class="ph-col-12 cmp-col-8 gtr">
+            <img class="ph-ins-50 tab-ins-33 cmp-ins-25" src="./img/profile-jeff-george.jpg" alt="Jeff George">
+
+            <section class="">
+              <p>Post-ironic literally craft beer, Banksy Tumblr gentrify selfies distillery cronut skateboard ethical swag. Helvetica mustache Williamsburg forage meggings organic. Deep v sartorial authentic artisan flexitarian dreamcatcher Bushwick, hella scenester. Sustainable ugh asymmetrical pug banjo.</p>
+
+              <p class="footroom">Hoodie selvage cronut wayfarers, listicle DIY Tumblr iPhone mustache roof party sriracha +1 Portland gluten-free. Fashion axe VHS tilde actually High Life, direct trade cliche hoodie Carles listicle butcher craft beer. Polaroid pour-over PBR&amp;B, pickled chambray before they sold out mumblecore lo-fi keffiyeh.</p>
+            </section>
+
           </div>
 
-          <section class"ph-col-12 gtr">
-            <p>Post-ironic literally craft beer, Banksy Tumblr gentrify selfies distillery cronut skateboard ethical swag. Helvetica mustache Williamsburg forage meggings organic. Deep v sartorial authentic artisan flexitarian dreamcatcher Bushwick, hella scenester. Sustainable ugh asymmetrical pug banjo.</p>
-
-            <p>Hoodie selvage cronut wayfarers, listicle DIY Tumblr iPhone mustache roof party sriracha +1 Portland gluten-free. Fashion axe VHS tilde actually High Life, direct trade cliche hoodie Carles listicle butcher craft beer. Polaroid pour-over PBR&amp;B, pickled chambray before they sold out mumblecore lo-fi keffiyeh.</p>
-          </section>
-
-          <aside class="ph-col-12 box-item box">
+          <aside class="ph-col-12 tab-col-12 cmp-col-4 no-headroom box-item box">
             <header>
-              <h3>About this website</h3>
+              <h3>About my website</h3>
             </header>
 
             <p>Hoodie selvage cronut wayfarers, listicle DIY Tumblr iPhone mustache roof party sriracha +1 Portland gluten-free. Fashion axe VHS tilde actually High Life, direct trade cliche hoodie Carles listicle butcher craft beer. Polaroid pour-over PBR&amp;B, pickled chambray before they sold out mumblecore lo-fi keffiyeh.</p>
@@ -155,12 +156,15 @@
 
       <section id="contact" class="contact border-top txt-ctr">
         <header class="row gtr">
-          <h2 class="ph-col-12 txt-ctr">And here are some ways to get in touch with me...</h2>
+          <h2 class="section--head ph-col-12 headroom txt-ctr">And here are some ways to get in touch with me...</h2>
         </header>
-        <a class="gtr" href="mailto:webdevjeffus@gmail.com"><i class="fa fa-envelope-square fa-4x"></i></a>
-        <a class="gtr" href="https://twitter.com/webdevjeffus"><i class="fa fa-twitter-square fa-4x"></i></a>
-        <a class="gtr" href="https://www.linkedin.com/in/webdevjeffus"><i class="fa fa-linkedin-square fa-4x"></i></a>
-        <a class="gtr" href="https://github.com/webdevjeffus"><i class="fa fa-github-square fa-4x"></i></a>
+
+        <section class="row footroom gtr">
+          <a class="gtr" href="mailto:webdevjeffus@gmail.com"><i class="fa fa-envelope-square fa-4x"></i></a>
+          <a class="gtr" href="https://twitter.com/webdevjeffus"><i class="fa fa-twitter-square fa-4x"></i></a>
+          <a class="gtr" href="https://www.linkedin.com/in/webdevjeffus"><i class="fa fa-linkedin-square fa-4x"></i></a>
+          <a class="gtr" href="https://github.com/webdevjeffus"><i class="fa fa-github-square fa-4x"></i></a>
+      </section>
 
       </section><!-- /class="contact" -->
 
