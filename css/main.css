@@ -31,9 +31,17 @@ html {
   font-family: 'Open Sans', sans-serif;
   color: rgb( 64, 64, 64); /* Hi Blk */
   background-color: rgb(204,204,204); /* Lo Wht */
+  padding: 0;
+  margin: 0;
 }
 
 body {
+  background-color: rgb(204,204,204); /* Lo Wht */
+  position: relative;
+  top: -9px;
+}
+
+.container {
   background-color: rgb(247,247,247); /* Md Wht */
 }
 
@@ -49,11 +57,104 @@ h6 {
   font-family: 'Walter Turncoat', cursive;
 }
 
+a:link {
+  color: rgb( 18,115, 70); /* Md Grn */
+  text-decoration: none;
+}
+
+a:visited {
+  color:  rgb( 10, 64, 39); /* Lo Grn */
+}
+
+a:hover, a:active {
+  color: rgb( 32,204,124); /* Hi Grn */
+  text-decoration: underline;
+}
 
 
 
+.border-top {
+  border-top: 1px solid rgb( 41, 47,127); /* Lo Blu */
+}
 
 
+/** Masthead Styles **/
+
+.masthead {
+  background-color: rgb( 18, 18, 18); /* Md Blk */
+  color: rgb(173, 43, 48); /* Md Red */
+}
+
+.masthead--logo {
+  font-size: 3rem;
+}
+
+
+/** Splash Panel Styles **/
+
+.splash {
+  background-color: rgb(255,255,255);
+  background-image: url("../img/ph-hero.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 350px;
+  height: 525px;
+}
+
+.splash--head {
+  font-size: 2.6rem;
+  padding-top: 5rem;
+  color: rgb(173, 43, 48); /* Md Red */
+  text-shadow: -3px -3px 2px rgb(255,255,255), 3px 3px 2px rgb(255,255,255);
+}
+
+.splash--text {
+  font-family: 'Walter Turncoat', cursive;
+  font-size: 1.5rem;
+  color: rgb( 52, 60,163); /* Md Blu */
+  text-shadow: -2px -2px rgb(255,255,255), 2px 2px rgb(255,255,255);
+}
+
+
+/** Blog previews **/
+
+.blog {
+
+}
+
+.box-item {
+  background-color: rgb(204,204,204); /* Lo Wht */
+  color: rgb(  0,  0,  0); /* Lo Blk */
+  border: 1px solid rgb(  0,  0,  0); /* Lo Blk */
+}
+
+.blog--closer {
+  font-family: 'Walter Turncoat', cursive;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+
+/** Footer Styles **/
+
+.footer {
+  background-color: rgb( 52, 60,163); /* Md Blu */
+  color: rgb(247,247,247); /* Md Wht */
+}
+
+.footer--text {
+  font-size: 0.8rem;
+}
+
+.footer--link:link,
+.footer--link:visited {
+  color: rgb( 32,204,124); /* Hi Grn */
+}
+
+.footer--link:hover,
+.footer--link:active {
+  color: rgb(255,255,255); /* Hi Wht */
+}
 
 
 
