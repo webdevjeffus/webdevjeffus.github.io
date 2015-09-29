@@ -54,7 +54,9 @@ h6 {
   font-family: 'Walter Turncoat', 'Comic Sans MS', sans-serif;
 }
 
-
+p {
+  line-height: 1.6;
+}
 
 a:link,
 a:visited {
@@ -120,6 +122,19 @@ a:hover, a:active {
 .hammer {
   font-family: 'Permanent Marker', 'Comic Sans MS', sans-serif;
   font-size: 2rem;
+  color: rgb( 52, 60,163); /* Md Blu */
+}
+
+.blue-link:link,
+.blue-link:visited {
+  color: rgb( 52, 60,163); /* Md Blu */
+  text-decoration: none;
+}
+
+.blue-link:hover,
+.blue-link:active {
+  color: rgb( 81, 94,255); /* Hi Blu */
+  text-decoration: none;
 }
 
 /** Masthead Styles **/

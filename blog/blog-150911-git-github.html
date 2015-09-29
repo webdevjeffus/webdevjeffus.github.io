@@ -3,117 +3,156 @@
 <html>
 
 <head>
-  <title>Version Control | git and GitHub</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Jeff George | git and GitHub</title>
+  <meta name="description" content="Portfolio, background, and contact information for Jeff George, a full-stack web developer based in New York, NY.">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="../css/normalize.min.css">
+  <link rel="stylesheet" href="../css/griddy.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/blog.css">
+
+  <link href='https://fonts.googleapis.com/css?family=Permanent+Marker|Walter+Turncoat|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- HTML5SHIV script borrowed from HTML5Boilerplate -->
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+  <![endif]-->
 </head>
 
 <body>
+  <!-- BROWSER UPGRADE WARNING borrowed from HTML5Boilerplate -->
+  <!--[if lt IE 8]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
 
-  <header>
-    <h1><a href="../index.html">webdevjeff.us</a></h1>
-    <p>Web Developer Jeff George</p>
+  <div class="container">
 
-    <nav>
-      <ul>
-        <li><a href="../index.html">Work</a></li>
-        <li><a href="./index.html">Blog</a></li>
-        <li><a href="../index.html">About</a></li>
-        <li><a href="../index.html">Contact</a></li>
-      </ul>
-    </nav>
+    <header class="masthead ref-pt row">
+      <div class="gtr-2x">
+        <h1 class="masthead--logo"><a href="../index.html" class="masthead--logo__link">webdevjeff.us</a></h1>
+        <p class="masthead--subhead ph-hide-blk">Web Developer Jeff George</p>
+      </div>
 
-  </header>
+      <nav class="ph-hide-blk">
+        <ul class="masthead--nav">
+          <a class="masthead--nav-link" href="../index.html"><li class="masthead--nav-item">Home</li></a>
+          <a class="masthead--nav-link" href="../index.html#portfolio"><li class="masthead--nav-item">Work</li></a>
+          <a class="masthead--nav-link" href="../index.html#about"><li class="masthead--nav-item">About</li></a>
+          <a class="masthead--nav-link" href="../index.html#contact"><li class="masthead--nav-item">Contact</li></a>
+        </ul>
+      </nav>
 
-  <main>
-    <article>
+    </header>
 
-      <header>
-        <h2>Blog</h2>
-        <div class="blog-post-nav">
-          <a href="./blog-150920-bootcamp-vs-CS.html"><i class="fa fa-caret-right fa-2x"></i></a>
-          <a href="./index.html"><i class="fa fa-caret-left fa-2x"></i></a>
-        </div>
-      </header>
 
-      <article>
+    <main class="row gtr">
 
-        <header>
-          <p class="hammer">Version averse?</p>
-          <h3>Embracing version control with git and GitHub</h3>
-          <p>Sept. 11, 2015</p>
+      <article class="ph-col-12 tab-col-8 cmp-col-8">
+
+        <header class="main--header__blog row gtr">
+          <h1 class="main--head__blog headroom-half"><a href="index.html" class="blue-link">Blog</a></h1>
+          <div class="blog-post--nav">
+            <a href="./index.html">
+              <i class="fa fa-caret-left fa-3x blog-post--nav-arrow"></i>
+            </a>
+            <a href="./index.html">
+              <i class="fa fa-caret-up fa-3x blog-post--nav-arrow-up"></i>
+            </a>
+            <a href="./blog-150920-bootcamp-vs-CS.html">
+              <i class="fa fa-caret-right fa-3x blog-post--nav-arrow"></i>
+            </a>
+          </div>
         </header>
 
-          <p>I'd heard of version control before I got to Dev Bootcamp. (Technically, I'm not <em>at</em> Dev Bootcamp now &mdash; I'm in the first week of the 9-week remote preparation course DBC calls "Phase 0".) I'd made a GitHub and BitBucket accounts for online courses I took while teaching myself basic programming. I even did two short courses through Udemy that focused specifically on git and GitHub. But it still seemed like sorcery to me. I'd recite the incantations as best I could, and sometimes the right thing would happen, but I was never quite sure what had happened and why. Eventually, I'd get confused and frustrated, and go back to haphazardly archiving versions of my project in Dropbox folders, putting off <em>real</em> version control for later.</p>
+        <article class="gtr">
 
-          <p>Well, now it's later. I'm enrolled in Dev Bootcamp, and the first week of Phase 0 is all about version control, so I can't avoid it any longer. Sure, some of the Week 1 assignments <em>say</em> they're about other things, but they're really mostly about practicing creating, forking, cloning, branching, pushing, pulling, and merging repositories on GitHub. I'm still not certain about everything that's going on, but at least I've learned the basics. Here's the little that I know...</p>
+          <header>
+            <p class="hammer headroom no-footroom">Version averse?</p>
+            <h3 class="blog--desc no-headroom no-footroom">Embracing version control with git and GitHub</h3>
+            <p class="blog--date">Sept. 11, 2015</p>
+          </header>
 
-          <h4>You can't afford to be version averse</h4>
-          <p>As a coder, you can sort of limp along without version control &mdash; as long as you're working alone. As soon as you want to collaborate with even one other developer, the risk of things going suddenly, sickeningly wrong goes up by several orders of magnitude. One person may save over another person's work, or delete key files, or have a brilliant idea for a feature you cut three versions back. Development teams need a system that lets them share project files, edit them, add to them, merge them back together, and archive them so that old versions can be recovered and restored if necessary. A real version control system &mdash; like git and GitHub &mdash; does all that for you.</p>
+            <p>I'd heard of version control before I got to Dev Bootcamp. (Technically, I'm not <em>at</em> Dev Bootcamp now &mdash; I'm in the first week of the 9-week remote preparation course DBC calls "Phase 0".) I'd made a GitHub and BitBucket accounts for online courses I took while teaching myself basic programming. I even did two short courses through Udemy that focused specifically on git and GitHub. But it still seemed like sorcery to me. I'd recite the incantations as best I could, and sometimes the right thing would happen, but I was never quite sure what had happened and why. Eventually, I'd get confused and frustrated, and go back to haphazardly archiving versions of my project in Dropbox folders, putting off <em>real</em> version control for later.</p>
 
-          <p>Here's what version control does, in a nutshell. A master repository for all the files that make up the project is created on a system that is accessable to all members of the development team. Each team member can download (pull) a copy (branch) to her own computer and work on any and all files...while everyone else is also working with the same files! At appropriate intervals, each team can upload (push) their branch back up to the master repository, compare (compare, believe it not) their files to those in the master branch, resolve any conflicts between the two versions that are discovered during the comparison, and them merge their changes into the master branch. A complete archive of the entire project is saved with every such update, along with a message detailing the changes made; if necessary, all or part of any archived version can be recovered and re-incorporated into the ongoing project.</p>
+            <p>Well, now it's later. I'm enrolled in Dev Bootcamp, and the first week of Phase 0 is all about version control, so I can't avoid it any longer. Sure, some of the Week 1 assignments <em>say</em> they're about other things, but they're really mostly about practicing creating, forking, cloning, branching, pushing, pulling, and merging repositories on GitHub. I'm still not certain about everything that's going on, but at least I've learned the basics. Here's the little that I know...</p>
 
-          <p>With version control, you no longer have to worry about losing work when someone accidentally saves over or deletes a teammate's files. If a fatal error gets coded into the project, you can roll back to the last version without the problem, instead of starting over from scratch. And if you want to explore different options for the project &mdash; such as whether or not to redesign the interface or include controversial features &mdash; the team can create a separate branch (called a fork) and continue to develop both versions in parallel, eventually deciding whether to merge them back together, or to abandon one fork entirely. Version control offers development teams both security and options that aren't available any other way.</p>
+            <h4 class="blog--section-head">You can't afford to be version averse</h4>
+            <p>As a coder, you can sort of limp along without version control &mdash; as long as you're working alone. As soon as you want to collaborate with even one other developer, the risk of things going suddenly, sickeningly wrong goes up by several orders of magnitude. One person may save over another person's work, or delete key files, or have a brilliant idea for a feature you cut three versions back. Development teams need a system that lets them share project files, edit them, add to them, merge them back together, and archive them so that old versions can be recovered and restored if necessary. A real version control system &mdash; like git and GitHub &mdash; does all that for you.</p>
 
-          <h4>git'er done with GitHub</h4>
-          <p>Once you've decided to use version control, you have to pick a system to use. Unless you're required by a client or employer to use another, the best choice today is git and GitHub, which is the most popular version control system and service in the open-source web-development community. It's the pairing that everyone knows, and everyone expects you to be comfortable with. The git software is free to download and install, and GitHub serves the open-source community by offering their services and servers for free for all public repositories. But what's the difference between git and GitHub, and why would anyone need both?</p>
+            <p>Here's what version control does, in a nutshell. A master repository for all the files that make up the project is created on a system that is accessable to all members of the development team. Each team member can download (pull) a copy (branch) to her own computer and work on any and all files...while everyone else is also working with the same files! At appropriate intervals, each team can upload (push) their branch back up to the master repository, compare (compare, believe it not) their files to those in the master branch, resolve any conflicts between the two versions that are discovered during the comparison, and them merge their changes into the master branch. A complete archive of the entire project is saved with every such update, along with a message detailing the changes made; if necessary, all or part of any archived version can be recovered and re-incorporated into the ongoing project.</p>
 
-          <p><strong><a href="https://git-scm.com/">git</a></strong> is a version-control system originally invented by Linus Torvalds to support the open-source development of the Linux operating system. It is a program that is installed on your own computer, where it saves and manages file repositories locally. git is best operated using the command line, instead through a graphic user interface &mdash; which is part of why it's daunting to learn for many modern computer users.</p>
+            <p>With version control, you no longer have to worry about losing work when someone accidentally saves over or deletes a teammate's files. If a fatal error gets coded into the project, you can roll back to the last version without the problem, instead of starting over from scratch. And if you want to explore different options for the project &mdash; such as whether or not to redesign the interface or include controversial features &mdash; the team can create a separate branch (called a fork) and continue to develop both versions in parallel, eventually deciding whether to merge them back together, or to abandon one fork entirely. Version control offers development teams both security and options that aren't available any other way.</p>
 
-          <p><strong><a href="https://github.com/">GitHub</a></strong> is an internet-based service which allows users to store and share their git repositories online, enabling teams of developers to communicate and collaborate on version-controlled projects regardless of their physical location. Users manage their online repositories using GitHub's graphical interface, but local git operations must still be performed from the command line. GitHub relies upon git, but git is not limited to GitHub; git can be used locally without GitHub, or in conjunction with a rival service such as BitBucket. GitHub is free to use for public repositories, but charges a fee for hosting private repos.</p>
+            <h4 class="blog--section-head">git'er done with GitHub</h4>
+            <p>Once you've decided to use version control, you have to pick a system to use. Unless you're required by a client or employer to use another, the best choice today is git and GitHub, which is the most popular version control system and service in the open-source web-development community. It's the pairing that everyone knows, and everyone expects you to be comfortable with. The git software is free to download and install, and GitHub serves the open-source community by offering their services and servers for free for all public repositories. But what's the difference between git and GitHub, and why would anyone need both?</p>
 
-          <h4>Now git going!</h4>
-          <p>To install git, you'll need to follow the directions at <a href="https://git-scm.com/">the git website</a> &mdash; the procedure will vary according to your operating system. It's easy to <a href="https://github.com/">make a GitHub account</a>, though, and tutorials on the GitHub site will help you get started using it.</p>
-          <p>Once you've installed git and made your GitHub account, you may (or may not) find these walk-throughs of common git tasks helpful:</p>
+            <p><strong><a href="https://git-scm.com/">git</a></strong> is a version-control system originally invented by Linus Torvalds to support the open-source development of the Linux operating system. It is a program that is installed on your own computer, where it saves and manages file repositories locally. git is best operated using the command line, instead through a graphic user interface &mdash; which is part of why it's daunting to learn for many modern computer users.</p>
 
-          <ul>
-            <li><a href="https://github.com/webdevjeffus/webdevjeffus.github.io/blob/master/blog/git-create-repo.md">Create a GitHub Repo</a> &mdash; How to create a new repository on GitHub and clone it to your local system</li>
-            <li><a href="https://github.com/webdevjeffus/phase-0/blob/master/week-1/git-workflow-ref.md">git Workflow Walk-through</a> &mdash; How to begin and end each day of software development in a git-controlled project.</li>
-          </ul>
+            <p><strong><a href="https://github.com/">GitHub</a></strong> is an internet-based service which allows users to store and share their git repositories online, enabling teams of developers to communicate and collaborate on version-controlled projects regardless of their physical location. Users manage their online repositories using GitHub's graphical interface, but local git operations must still be performed from the command line. GitHub relies upon git, but git is not limited to GitHub; git can be used locally without GitHub, or in conjunction with a rival service such as BitBucket. GitHub is free to use for public repositories, but charges a fee for hosting private repos.</p>
+
+            <h4 class="blog--section-head">Now git going!</h4>
+            <p>To install git, you'll need to follow the directions at <a href="https://git-scm.com/">the git website</a> &mdash; the procedure will vary according to your operating system. It's easy to <a href="https://github.com/">make a GitHub account</a>, though, and tutorials on the GitHub site will help you get started using it.</p>
+            <p>Once you've installed git and made your GitHub account, you may (or may not) find these walk-throughs of common git tasks helpful:</p>
+
+            <ul>
+              <li><a href="https://github.com/webdevjeffus/webdevjeffus.github.io/blob/master/blog/git-create-repo.md"><strong>Create a GitHub Repo</strong></a> &mdash; How to create a new repository on GitHub and clone it to your local system</li>
+              <li><a href="https://github.com/webdevjeffus/phase-0/blob/master/week-1/git-workflow-ref.md"><strong>git Workflow Walk-through</strong></a> &mdash; How to begin and end each day of software development in a git-controlled project.</li>
+            </ul>
+
+        </article>
 
       </article>
 
-    </article>
+              <aside class="ph-col-12 tab-col-4 cmp-col-4 box-item box gtr">
 
-    <aside>
+          <section>
+            <header>
+              <h3 class="aside--head headroom footroom-half">About Jeff George</h3>
+            </header>
 
-      <section>
-        <h3>About Jeff George</h3>
-        <img src="../imgs/profile-jeff-george.jpg" alt="Jeff George">
-        <div class="twitter-follow">
-          <i class="fa fa-twitter fa-lg"></i>
-          <a href="https://twitter.com/webdevjeffus">Follow @webdevjeffus</a>
-        </div>
-      </section>
+          <section>
+            <header>
+              <h4 class="hidden">Jeff George's Biography</h4>
+            </header>
 
-      <section>
-        <h4>Bio</h4>
-        <p>
-          As I write this blog post, I am enrolled in <a href="http://devbootcamp.com/">Dev Bootcamp</a>, an immersive web-development program in New York City. I'm currently in Phase 0 of the Dev Bootcamp program, a remote-learning phase in which we gain a strong grasp of the basics of technologies like HTML5, CSS3, Ruby, and JavaScript through both independent work and pair-programming. In a few weeks, I'll join the rest of my cohort at the DBC-NY campus in Manhattan's Financial District, for onsite training in technologies and techniques including Ruby on Rails, SQL, test-driven development and agile development.
-        </p>
-        <p>
-          In the years before Dev Bootcamp, I've worked as a teacher, a photographer, a writer and editor, and even as a game designer. Throughout my career, all of my work has revolved around creative communication and problem-solving, and I'm excited to bring that background to the internet as a web developer.
-        </p>
-        <p>
-          I've lived and worked in Austin, TX, San Mateo, CA, and Phoenix, AZ, but for the past two decades, I've been in New York City. I settled in historic <a href="https://en.wikipedia.org/wiki/City_Island,_Bronx">City Island, the Bronx</a> &mdash; New York City's maritime community &mdash; in 2007, with my wife and daughter.</p>
-      </section>
+            <img class="ph-ins-33 tab-ins-42 cmp-ins-42 aside--img" src="../img/profile-jeff-george.jpg" alt="Jeff George">
+            <p>
+              As I write this blog post, I am enrolled in <a href="http://devbootcamp.com/">Dev Bootcamp</a>, an immersive web-development program in New York City. I'm currently in Phase 0 of the Dev Bootcamp program, a remote-learning phase in which we gain a strong grasp of the basics of technologies like HTML5, CSS3, Ruby, and JavaScript through both independent work and pair-programming. In a few weeks, I'll join the rest of my cohort at the DBC-NY campus in Manhattan's Financial District, for onsite training in technologies and techniques including Ruby on Rails, SQL, test-driven development and agile development.
+            </p>
+            <p>
+              In the years before Dev Bootcamp, I've worked as a teacher, a photographer, a writer and editor, and even as a game designer. Throughout my career, all of my work has revolved around creative communication and problem-solving, and I'm excited to bring that background to the internet as a web developer.
+            </p>
+            <p>
+              I've lived and worked in Austin, TX, San Mateo, CA, and Phoenix, AZ, but for the past two decades, I've been in New York City. I settled in historic <a href="https://en.wikipedia.org/wiki/City_Island,_Bronx">City Island, the Bronx</a> &mdash; New York City's maritime community &mdash; in 2007, with my wife and daughter.</p>
+          </section>
 
-      <section>
-        <h4>Contact</h4>
-        <a href="mailto:webdevjeffus@gmail.com"><i class="fa fa-envelope-o fa-lg"></i></a>
-        <a href="https://www.linkedin.com/in/webdevjeffus"><i class="fa fa-linkedin-square fa-lg"></i></a>
-        <a href="https://github.com/webdevjeffus"><i class="fa fa-github-square fa-lg"></i></a>
-      </section>
+          <section class="txt-ctr footroom">
+            <h4 class="hidden">Contact Jeff George</h4>
+            <a href="mailto:webdevjeffus@gmail.com" class="gtr"><i class="fa fa-envelope-o fa-2x"></i></a>
+            <a href="https://twitter.com/webdevjeffus" class="gtr"><i class="fa fa-twitter fa-2x"></i></a>
+            <a href="https://www.linkedin.com/in/webdevjeffus" class="gtr"><i class="fa fa-linkedin-square fa-2x"></i></a>
+            <a href="https://github.com/webdevjeffus" class="gtr"><i class="fa fa-github-square fa-2x"></i></a>
+          </section>
 
-    </aside>
+        </aside>
 
-  </main>
+    </main>
 
-  <footer>
-    <p>
-      <a href="webdevjeffus.github.io/index.html">Jeff George</a> - All content is <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC-By-NC-SA</a> unless otherwise noted.
-    </p>
-  </footer>
+
+    <footer class="footer row gtr txt-ctr">
+
+      <p class="footer--text headroom no-footroom">Website design and developed by <a class="footer--link" href="https://webdevjeffus.github.io/">Jeff George</a></p>
+      <p class="footer--text">All text and images are <a class="footer--link" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise noted.</p>
+
+    </footer>
+
+  </div><!-- /.container -->
 
 </body>
 
