@@ -85,7 +85,11 @@ h2,
 h3,
 h4,
 h5,
-h6,
+h6 {
+  margin: 0;
+}
+
+
 p {
   line-height: 1.4;
   margin: 0 0 0.75rem 0;
@@ -106,8 +110,7 @@ h6:first-child,
 
 
 img {
-  margin: 0;
-  padding-bottom: 0.75rem;
+  margin: 0 0 0.75rem 0;
   width: 100%;
 }
 
@@ -142,7 +145,7 @@ html {
 .ph-ins-33,
 .ph-ins-50 {
   float: right;
-  padding-left: 1.2rem;
+  margin-left: 1.2rem;
 }
 
 .ph-ins-25 { width: 25%; }
@@ -208,7 +211,7 @@ html {
   .ph-ins-50 {
     width: 100%;
     float: none;
-    padding-left: 0;
+    margin-left: 0;
   }
 
 
@@ -218,18 +221,20 @@ html {
   .tab-ins-17,
   .tab-ins-25,
   .tab-ins-33,
+  .tab-ins-42,
   .tab-ins-50,
   .tab-ins-62,
   .tab-ins-67,
   .tab-ins-75 {
     float: right;
-    padding-left: 1.2rem;
+    margin-left: 1.2rem;
   }
 
   .tab-ins-12 { width: 12.5%; }
   .tab-ins-17 { width: 16.7%; }
   .tab-ins-25 { width: 25%;   }
   .tab-ins-33 { width: 33%;   }
+  .tab-ins-42 { width: 42%;   }
   .tab-ins-50 { width: 50%;   }
   .tab-ins-62 { width: 62.5%; }
   .tab-ins-67 { width: 66.7%; }
@@ -303,31 +308,34 @@ html {
   .tab-ins-17,
   .tab-ins-25,
   .tab-ins-33,
+  .tab-ins-42,
   .tab-ins-50,
   .tab-ins-62,
   .tab-ins-67,
   .tab-ins-75 {
     width: 100%;
     float: none;
-    padding-left: 0;
+    margin-left: 0;
   }
 
   .cmp-ins-12,
   .cmp-ins-17,
   .cmp-ins-25,
   .cmp-ins-33,
+  .cmp-ins-42,
   .cmp-ins-50,
   .cmp-ins-62,
   .cmp-ins-67,
   .cmp-ins-75 {
     float: right;
-    padding-left: 1.2rem;
+    margin-left: 1.2rem;
   }
 
   .cmp-ins-12 { width: 12.5%; }
   .cmp-ins-17 { width: 16.7%; }
   .cmp-ins-25 { width: 25%;   }
   .cmp-ins-33 { width: 33%;   }
+  .cmp-ins-42 { width: 42%;   }
   .cmp-ins-50 { width: 50%;   }
   .cmp-ins-62 { width: 62.5%; }
   .cmp-ins-67 { width: 66.7%; }
@@ -434,24 +442,32 @@ html {
 .box {
   padding-left: 1.2rem;
   padding-right: 1.2rem;
-  margin: 0.75rem 1%;
+  margin: 1rem 1%;
 }
 
 
 /* Add or remove space above element - usually <h_> or <p> */
 .headroom    { padding-top: 1rem; }
+.headroom-half { padding-top: 0.5rem; }
 .no-headroom {
   padding-top: 0;
   margin-top: 0;
 }
 
+/* Increase or decrease MARGIN space above element - usually a .box-item */
+
+.headroom-bx-more { margin-top: 1.5rem; }
+.headroom-bx-less { margin-top: 0.5rem; }
+
 /* Add or remove space below element - usually <h_> or <p> */
 .footroom    { margin-bottom: 1em; }
+.footroom-half { margin-bottom: 0.5rem; }
 .no-footroom {
   padding-bottom: 0;
   margin-bottom: 0;
 }
 
+.hidden { display: none; }
 
 .txt-ctr { text-align: center; }
 

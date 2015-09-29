@@ -54,14 +54,15 @@ h6 {
   font-family: 'Walter Turncoat', 'Comic Sans MS', sans-serif;
 }
 
-a:link {
+
+
+a:link,
+a:visited {
   color: rgb( 18,115, 70); /* Md Grn */
   text-decoration: none;
 }
 
-a:visited {
-  color:  rgb( 10, 64, 39); /* Lo Grn */
-}
+
 
 a:hover, a:active {
   color: rgb( 32,204,124); /* Hi Grn */
@@ -79,17 +80,47 @@ a:hover, a:active {
   border-top: 1px solid rgb( 41, 47,127); /* Lo Blu */
 }
 
+
 .box-item {
   background-color: rgb(204,204,204); /* Lo Wht */
   color: rgb(  0,  0,  0); /* Lo Blk */
   border: 1px solid rgb(  0,  0,  0); /* Lo Blk */
+  font-size: 0.8rem;
+}
+
+.main--head {
+  font-size: 2.6rem;
+  color: rgb( 52, 60,163); /* Md Blu */
+  border-bottom: 2px solid rgb( 52, 60,163); /* Md Blu */
 }
 
 .section--head {
   color: rgb( 52, 60,163); /* Md Blu */
   font-size: 2.0rem;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
 }
 
+.section--subhead {
+  font-family: 'Walter Turncoat', 'Comic Sans MS', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+
+.aside--head {
+  font-size: 1.6rem;
+  padding-top: 0.75rem;
+}
+
+.aside--img {
+  border: 1px solid rgb(  0,  0,  0); /* Lo Blk */
+}
+
+
+.hammer {
+  font-family: 'Permanent Marker', 'Comic Sans MS', sans-serif;
+  font-size: 2rem;
+}
 
 /** Masthead Styles **/
 
@@ -101,10 +132,23 @@ a:hover, a:active {
 }
 
 .masthead--logo {
-  font-size: 3rem;
+  font-size: 3.6rem;
+}
+
+.masthead--logo__link:link,
+.masthead--logo__link:visited {
+  color: rgb(173, 43, 48); /* Md Red */
+}
+
+.masthead--logo__link:hover,
+.masthead--logo__link:active {
+  color: rgb(255, 63, 71); /* Hi Red */
+  text-decoration: none;
 }
 
 .masthead--subhead {
+  font-family: 'Walter Turncoat', 'Comic Sans MS', sans-serif;
+  font-size: 1.6rem;
   color: rgb( 81, 94,255); /* Hi Blu */
   float: left;
 }
@@ -119,9 +163,10 @@ a:hover, a:active {
 
 .masthead--nav-item {
   display: inline-block;
+  font-family: 'Walter Turncoat', 'Comic Sans MS', sans-serif;
   font-weight: bold;
   padding: 0 1rem;
-  border-left: 1px solid rgb( 64, 64, 64); /* Hi Blk */
+  border-left: 2px solid rgb( 64, 64, 64); /* Hi Blk */
 }
 
 .masthead--nav-link:link,
@@ -177,12 +222,6 @@ a:hover, a:active {
 
 .blog {
 
-}
-
-.blog--title {
-  font-size: 1.6rem;
-  padding-top: 0.75rem;
-  margin-bottom: 0.25rem;
 }
 
 
