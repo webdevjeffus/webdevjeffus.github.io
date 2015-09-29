@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Jeff George | ID vs Class in CSS</title>
+  <meta name="description" content="Technical blog post about the use of IDs and Classes as CSS selectors by Jeff George, a full-stack web developer based in New York, NY.">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="../css/normalize.min.css">
+  <link rel="stylesheet" href="../css/griddy.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/blog.css">
+
+  <link href='https://fonts.googleapis.com/css?family=Permanent+Marker|Walter+Turncoat|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- HTML5SHIV script borrowed from HTML5Boilerplate -->
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+  <![endif]-->
+</head>
+
+<body>
+  <!-- BROWSER UPGRADE WARNING borrowed from HTML5Boilerplate -->
+  <!--[if lt IE 8]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <div class="container">
+
+    <header class="masthead ref-pt row">
+      <div class="gtr-2x">
+        <h1 class="masthead--logo"><a href="../index.html" class="masthead--logo__link">webdevjeff.us</a></h1>
+        <p class="masthead--subhead ph-hide-blk">Web Developer Jeff George</p>
+      </div>
+
+      <nav class="ph-hide-blk">
+        <ul class="masthead--nav">
+          <a class="masthead--nav-link" href="../index.html"><li class="masthead--nav-item">Home</li></a>
+          <a class="masthead--nav-link" href="../index.html#portfolio"><li class="masthead--nav-item">Work</li></a>
+          <a class="masthead--nav-link" href="../index.html#about"><li class="masthead--nav-item">About</li></a>
+          <a class="masthead--nav-link" href="../index.html#contact"><li class="masthead--nav-item">Contact</li></a>
+        </ul>
+      </nav>
+
+    </header>
+
+
+    <main class="row gtr">
+
+      <article class="ph-col-12 tab-col-8 cmp-col-8"><!-- Main column -->
+
+        <header class="main--header__blog row gtr">
+          <h1 class="main--head__blog headroom-half"><a href="index.html" class="blue-link">Blog</a></h1>
+          <div class="blog-post--nav">
+            <!-- PREVIOUS BLOG POST -->
+            <a href="./BLOG-150920-bootcamp-vs-CS.html">
+              <i class="fa fa-caret-left fa-3x blog-post--nav-arrow"></i>
+            </a>
+            <!-- BLOG INDEX -->
+            <a href="./index.html">
+              <i class="fa fa-caret-up fa-3x blog-post--nav-arrow-up"></i>
+            </a>
+            <!-- NEXT BLOG POST -->
+            <a href="./index.html">
+              <i class="fa fa-caret-right fa-3x blog-post--nav-arrow"></i>
+            </a>
+          </div>
+        </header>
+
+        <article class="gtr"><!-- Blog post -->
+
+          <header>
+            <p class="hammer headroom no-footroom">Relax! Don't do it!</p>
+            <h3 class="blog--desc no-headroom no-footroom">Never us IDs as selectors in CSS. Ever. Really.</h3>
+            <p class="blog--date">Sept. 29, 2015</p>
+          </header>
+
+            <p>When we're first learning CSS, we're taught three basic selectors to use to name our styling rules: elements, classes, and IDs. We're told that using elements as selectors (like <span class=code>&lt;p&gt;</span> or <span class=code>&lt;h1&gt;</span>) will apply a style rule to every instance of that element in our document, which has some utility. We're told that we can create classes as selectors that will apply a style rule only to the elements we choose, which is even more useful. And we're told that we can create IDs to style an element that occurs only once on the page, which <em>sounds</em> handy.</p>
+
+            <p>What we're not told is that just because we <em>can</em> create and use IDs for CSS styling, doesn't mean that we <em>should</em> do it. In fact, we should <em>not</em> do it. Ever. And here's why&hellip;
+
+            <h4 class="blog--section-head">Bad reasons to use IDs as selectors</h4>
+
+            <p>A handful of rationales have been offered for why it's OK to attach styling rules to IDs. Some assume that since Codecademy (and every other CSS intro on the web) shows you how to do it, it must be alright. Some do it because they've done it for years, and it has (almost) never caused a problem. Some say that since the IDs are already there (as link anchors or JavaScript selectors), it's just DRY ("Don't Repeat Yourself") coding practice to use them.</p>
+
+            <p>But these are all rationales, not reasons. The pattern of teaching new developers to use IDs as selectors goes more than a decade, when CSS was a primitive, optional enhancement to HTML, and not the equal partner it is today. Early versions of CSS tightly limited the number of classes you could create, and most basic sites were created using HTML alone, without CSS or Javascript. Back then, IDs were used mainly as mid-page targets for links, so there wasn't a lot less to mess up by having them serve double-duty as selectors. That's not true for today's much larger websites and more complex technologies. And as for DRY coding practices, IDs have more critical uses that don't even touch CSS; applying an ID to an element for your JavaScript and a separate CSS class to set it's appearance is <em>not</em> repeating yourself.</p>
+
+            <p>Some have argued that using IDs in place of classes improves browser performance, which is technically true but trivial to the point of irrelevance. Web dev blogger <a href="https://twitter.com/boblet">Oli Studholme</a> ran <a href="oli.jp/2011/ids/">empirical tests comparing browser performance using IDs and classes</a>, and found that in a test accessing <em>1,000</em> elements in an HTML document, Chrome processed the 1,000 ID requests a grand total of 1.2 <em>milliseconds</em> faster than the 1,000 class requests. That means that using an ID as a selector instead of a class cuts your load time by 1.2 <em>nanoseconds</em>, or 0.0000012 seconds! You'll save your users more time by optimizing a single JPG image than you could in a lifetime of using IDs in place of classes.</p>
+
+            <h4 class="blog--section-head">Good reasons not to use IDs as selectors</h4>
+
+            <p>There are several excellent reasons <em>not</em> to use IDs as CSS selectors. The most basic is that they already have two other important and closely-related functions: as unique identifiers for JavaScript, and as targets (anchors) for links to any destination other than the very top of the web page. Adding a third, very different function on top of that makes your code much more fragile and less maintainable. Imagine that you have used the same ID as an element handle used in a JavaScript method that allows your user to interact with the page, <em>and</em> as a selector to style that element. Then suppose fixing a bug in your JavaScript caused you to <em>change</em> the name of that ID. You've just broken your CSS, and your site isn't displaying properly anymore. If you'd used a separate class for the styling, you could change the ID to suit your JavaScript needs without fear of breaking anything.</p>
+
+            <p>Another compelling reason is that good CSS is re-usable CSS. You want your selectors and rules to be useful and applicable on a wide variety of elements, across many pages. Doing so (generally) makes your CSS file smaller, and your site more maintainable. IDs are just the opposite: each ID applies to only one element, and each element can have only one ID. For example, if you declare a class that turns text blue, <span class="code">.blue-text { color: blue; }</span>, you can apply that class to any headline, paragraph, span, list item, sidebar, glyphicon, whatever. And if you do a special version of the site for Halloween, and want to turn the blue text orange just for the day, you just make one change: <span class="code">.blue-text { color: orange; }</span>, which will instantly affect every instance of blue text on any page of the site. (And you can change it back just as easily on November 1). If you'd used IDs to style the color of your text, you'd have to go through every page of the site to make this change, looking for IDs with the declaration <span class="code">color: blue;</span> buried among their rules.</p>
+
+            <p>But the most important and least understood reason not to use IDs as selectors is that IDs stomp all over other selectors. Because CSS's rules for the specifity of selectors prioritize IDs over classes, and classes over elements, any rules using an ID as their selector will take precedence over conflicting rules based on element or class selectors, <em>regardless of their order in the CSS file.</em> For example, imagine you apply these rules to same <span class="code">div</span> element:</p>
+
+            <ul class="code-block">
+              <li class="code">#my-id { background-color: red; }</li>
+              <li class="code">.my-class { background-color: green; }</li>
+            </ul>
+
+            <p>You might expect the background of that div to be green, because that rule comes after the one that turns the background red. But what actually happens is that the specificity of the ID overpowers that of the class, so the rule based on the ID selector gets displayed on your page. You wanted a green background, but you got a red one, because you styled an ID. Whoops!</p>
+
+            <h4 class="blog--section-head">Anything ID can do, class can do better</h4>
+
+            <p>There's literally nothing good that CSS can do with an ID that it can't do better with a class. If you use only classes as your selectors, and never use IDs, you'll keep your CSS "flat," meaning that your rules will have more uniform specifity, and you'll be able to expect the later rules in your style cascade to overwrite earlier ones. You don't "save" anything by multi-purposing an ID as a CSS selector; modern CSS can handle a virtually unlimited classes on every page. But ID selectors do make your site more prone to bugs and errors, and more difficult to maintain. Because you can apply classes to more than one element, and more than one class to any single element, classes are infinitely re-usable and combinable, making your code more flexible, extensible, and compact.<p>
+
+            <p>If you really need a unique selector, you can just create a single-use class. You can even give it the exact string for both its ID and class names! That is, you can have an element like:</p>
+
+            <ul class="code-block">
+              <li class="code">&lt;button id="submit-btn" class="submit-btn"&gt;</li>
+            </ul>
+
+            <p>When you see "<span class="code">#submit-btn</span>" in your JavaScript and "<span class="code">.submit-btn</span>" in your CSS, you won't have any trouble remembering that you're talking about the same button. But if you are careful to attach your styling to the class (<span class="code">.submit-btn</span>), you won't break your page if you later need to change the ID of that button. Perhaps you'll later add a second submit button to a form on another part of the page. For clarity, you might change the ID of the original button to <span class="code">#submit-btn-1</span>, and ID the second one <span class="code">#submit-btn-2</span>. You could then style <em>both</em> buttons by applying the single class <span class="code">.submit-btn</span> to each of them, instead of having to add a separate set of identical style rules for <span class="code">#submit-btn-2</span> (which is the exact opposite of DRY coding, btw!).
+
+            <p>The bottom line is this: Save IDs for your JavaScript and link targets. Use classes to style your page. You'll get more sleep that way.</p>
+
+        </article><!-- /Blog post -->
+
+      </article><!-- Main column -->
+
+      <aside class="ph-col-12 tab-col-4 cmp-col-4 box-item box gtr">
+
+        <section>
+          <header>
+            <h3 class="aside--head headroom footroom-half">About Jeff George</h3>
+          </header>
+
+        <section>
+          <header>
+            <h4 class="hidden">Jeff George's Biography</h4>
+          </header>
+
+          <img class="ph-ins-33 tab-ins-42 cmp-ins-42 aside--img" src="../img/profile-jeff-george.jpg" alt="Jeff George">
+          <p>
+            As I write this blog post, I am enrolled in <a href="http://devbootcamp.com/">Dev Bootcamp</a>, an immersive web-development program in New York City. I'm currently in Phase 0 of the Dev Bootcamp program, a remote-learning phase in which we gain a strong grasp of the basics of technologies like HTML5, CSS3, Ruby, and JavaScript through both independent work and pair-programming. In a few weeks, I'll join the rest of my cohort at the DBC-NY campus in Manhattan's Financial District, for onsite training in technologies and techniques including Ruby on Rails, SQL, test-driven development and agile development.
+          </p>
+          <p>
+            In the years before Dev Bootcamp, I've worked as a teacher, a photographer, a writer and editor, and even as a game designer. Throughout my career, all of my work has revolved around creative communication and problem-solving, and I'm excited to bring that background to the internet as a web developer.
+          </p>
+          <p>
+            I've lived and worked in Austin, TX, San Mateo, CA, and Phoenix, AZ, but for the past two decades, I've been in New York City. I settled in historic <a href="https://en.wikipedia.org/wiki/City_Island,_Bronx">City Island, the Bronx</a> &mdash; New York City's maritime community &mdash; in 2007, with my wife and daughter.</p>
+        </section>
+
+        <section class="txt-ctr footroom">
+          <h4 class="hidden">Contact Jeff George</h4>
+          <a href="mailto:webdevjeffus@gmail.com" class="gtr"><i class="fa fa-envelope-o fa-2x"></i></a>
+          <a href="https://twitter.com/webdevjeffus" class="gtr"><i class="fa fa-twitter fa-2x"></i></a>
+          <a href="https://www.linkedin.com/in/webdevjeffus" class="gtr"><i class="fa fa-linkedin-square fa-2x"></i></a>
+          <a href="https://github.com/webdevjeffus" class="gtr"><i class="fa fa-github-square fa-2x"></i></a>
+        </section>
+
+      </aside>
+
+    </main>
+
+
+    <footer class="footer row gtr txt-ctr">
+
+      <p class="footer--text headroom no-footroom">Website design and developed by <a class="footer--link" href="https://webdevjeffus.github.io/">Jeff George</a></p>
+      <p class="footer--text">All text and images are <a class="footer--link" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise noted.</p>
+
+    </footer>
+
+  </div><!-- /.container -->
+
+</body>
+
+</html>
+
