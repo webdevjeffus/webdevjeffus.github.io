@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Arrays and Hashes | Jeff George</title>
+  <meta name="description" content="A brief introduction to Ruby's main collection types, arrays and hashes, by Jeff George, a full-stack web developer based in New York, NY.">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="../css/normalize.min.css">
+  <link rel="stylesheet" href="../css/griddy.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/blog.css">
+
+  <link href='https://fonts.googleapis.com/css?family=Permanent+Marker|Walter+Turncoat|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- HTML5SHIV script borrowed from HTML5Boilerplate -->
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+  <![endif]-->
+</head>
+
+<body>
+  <!-- BROWSER UPGRADE WARNING borrowed from HTML5Boilerplate -->
+  <!--[if lt IE 8]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <div class="container">
+
+    <header class="masthead ref-pt row">
+      <div class="gtr-2x">
+        <h1 class="masthead--logo"><a href="../index.html" class="masthead--logo__link">webdevjeff.us</a></h1>
+        <p class="masthead--subhead ph-hide-blk">Web Developer Jeff George</p>
+      </div>
+
+      <nav class="ph-hide-blk">
+        <ul class="masthead--nav">
+          <a class="masthead--nav-link" href="../index.html"><li class="masthead--nav-item">Home</li></a>
+          <a class="masthead--nav-link" href="../index.html#portfolio"><li class="masthead--nav-item">Work</li></a>
+          <a class="masthead--nav-link" href="../index.html#about"><li class="masthead--nav-item">About</li></a>
+          <a class="masthead--nav-link" href="../index.html#contact"><li class="masthead--nav-item">Contact</li></a>
+        </ul>
+      </nav>
+
+    </header>
+
+
+    <main class="row gtr">
+
+      <article class="ph-col-12 tab-col-8 cmp-col-8"><!-- Main column -->
+
+        <header class="main--header__blog row gtr">
+          <h1 class="main--head__blog headroom-half"><a href="index.html" class="blue-link">Blog</a></h1>
+          <div class="blog-post--nav">
+            <!-- PREVIOUS POST -->
+            <a href="./css-concepts.html">
+              <i class="fa fa-caret-left fa-3x blog-post--nav-arrow"></i>
+            </a>
+            <!-- BLOG INDEX -->
+            <a href="./index.html">
+              <i class="fa fa-caret-up fa-3x blog-post--nav-arrow-up"></i>
+            </a>
+            <!-- NEXT POST -->
+            <a href="./index.html">
+              <i class="fa fa-caret-right fa-3x blog-post--nav-arrow"></i>
+            </a>
+          </div>
+        </header>
+
+        <article class="gtr"><!-- Blog post -->
+
+          <header>
+            <p class="hammer headroom no-footroom">Taking up collections</p>
+            <h3 class="blog--desc no-headroom no-footroom">Introducing arrays and hashes in Ruby</h3>
+            <p class="blog--date">Oct. 3, 2015</p>
+          </header>
+
+            <p>In the Ruby programming language, two main data types carry the bulk of the load when it comes to handling collections: <em>arrays</em> and <em>hashes</em>. Understanding how arrays and hashes are alike, and how they are different, is critical to programming successfully in Ruby.</p>
+
+          <h4 class="blog--section-head">Arrays are for lists</h4>
+            <p>An array is a list of values arranged in a sequential order. The easiest way to create an array is to declare a variable, and set it equal to the contents of the list we intend to save. It is common convention to give arrays variable names that are plural, to suggest that the variable represents a collection of items. Here, we make an array of our favorite pies:</p>
+
+            <ul class="code-block code">
+              <li>pies = [ "pumpkin", "apple", "pecan" ]</li>
+            </ul>
+
+            <p>There are other ways to create an array, such as by calling<code> Array.new </code>or by using the<code> Array() </code>method, but those techniques are beyond the scope of this post.</p>
+
+            <p>Since arrays store values in a specific sequence, each value identified by an integer index number which names it's place in the sequence. In typical computer-science fashion, array indexes begin counting at 0, so the first item in the array has the index 0, the second item has the index 1, and so on. To access a value in an array, we use the name of the array, followed by the value's index in square brackets. Here, we want the second item in our<code> pies </code>array, so we use the index<code> [1]</code>.</p>
+
+            <ul class="code-block code">
+              <li>$ pies[1]</li>
+              <li>=> "apple"</li>
+            </ul>
+
+            <p>Calling <code>puts</code> with an array as its argument will print each member of the array on a separate line, like this:</p>
+
+            <ul class="code-block code">
+              <li>$ puts pies</li>
+              <li>pumpkin</li>
+              <li>apple</li>
+              <li>pecan</li>
+              <li>=> nil</li>
+            </ul>
+
+            <p>(Recall that puts always returns the value<code> nil</code>.)</p>
+
+            <p>We can add another item to our array using the<code> push </code>method, which can be used with our without parentheses. The item to be added to the end of the array is included as the argument to the<code> push </code>method, but parentheses around that argument are optional. Continuing with our<code> pies </code>array:</p>
+
+            <ul class="code-block code">
+              <li>$ pies.push( "cherry" )</li>
+              <li>=> ["pumpkin", "apple", "pecan", "cherry"]</li>
+              <li class="headroom">$ pies.push "mud"</li>
+              <li>=> ["pumpkin", "apple", "pecan", "cherry", "mud"]</li>
+            </ul>
+
+            <p>You can also add items to an array with the "shovel" operator,<code> &lt;&lt;</code>. The shovel operator can be chained to add several items on a single line, as well. We'll start a new array of integers for this example.</p>
+
+            <ul class="code-block code">
+              <li>$ numbers = [1, 2, 3]</li>
+              <li>=> [1, 2, 3],</li>
+              <li class="headroom">$ numbers &lt;&lt; 4</li>
+              <li>=> [1, 2, 3, 4]</li>
+              <li class="headroom">$ numbers &lt;&lt; 5 &lt;&lt; 6 &lt;&lt; 7</li>
+              <li>=> [1, 2, 3, 4, 5, 6, 7]</li>
+            </ul>
+
+            <p>To remove the last item from an array, you use the opposite of<code> push</code>, which is<code> pop</code>. This method permanently removes the last item, and returns its value.</p>
+
+            <ul class="code-block code">
+              <li>$ new_numbers = [10, 20, 30]</li>
+              <li>=> [10, 20, 30]
+              <li class="headroom">$ numbers.pop</li>
+              <li>=> 30</li>
+              <li class="headroom">$ numbers</li>
+              <li>=> [10, 20]&emsp;&emsp;<span class="code-comment"># array contents after pop</span></li>
+            </ul>
+
+            <p>If you want to remove the first item in the array instead, you can use<code> shift</code>, which so named because it removes the first item from the array, and shifts the remaining items down one index. The opposite of<code> shift </code>is<code> unshift</code>, which takes a value as an argument (again, parentheses optional), and inserts that value into the first position of the array, while "unshifting" the remaining elements up one index.<code> shift </code>returns the item removed from the array, while<code> unshift </code>returns the entire array, including the newly-added item in the first position.</p>
+
+            <ul class="code-block code">
+              <li>$ other_numbers = [25, 50, 75]</li>
+              <li class="headroom">$ numbers.shift</li>
+              <li>=> 25</li>
+              <li class="headroom">$ numbers</li>
+              <li>=> [50, 75]&emsp;&emsp;<span class="code-comment"># array contents after shift</span></li>
+              <li class="headroom">$ numbers.unshift(45)</li>
+              <li>=> [45, 50, 75]&emsp;&emsp;<span class="code-comment"># array contents after unshift</span></li>
+            </ul>
+
+            <p>There are literally dozens of other methods that can be used to manipulate arrays, adding items to them, taking items away, sorting them, re-ordering them, finding specific values or ranges within them, etc. You can find a complete listing of <a href="http://ruby-doc.org/core-2.2.0/Array.html">array methods in the official Ruby documentation</a>, and a <a href="http://www.sitepoint.com/guide-ruby-collections-part-arrays/">tutorial covering Ruby arrays at sitepoint.com</a>.</p>
+
+            <p>You may have noticed that in all my example arrays so far, every item in each array has been of the same data type. Our<code> pies </code>array consisted entirely of strings, while<code> numbers </code> was all integers. In fact, there is no restriction in Ruby that arrays be of the same data type. You can mix and match as many data types in a single array as you please. The following is a perfectly legal array in Ruby:</p>
+
+            <ul class="code-block code">
+              <li>$ peyton_manning = [18, "QB", 65.4, ["Colts", "Broncos"]]</li>
+              <li>=> [18, "QB", 65.4, ["Colts", "Broncos"]]</li>
+            </ul>
+
+            <p>This array contains an integer, a string, a float, and even another array, and it's all perfectly legal. But just because you <em>can</em> do something, doesn't mean you necessarily <em>should</em> do it. The items in this array all describe NFL quarterback Peyton Manning, but in order for them to be useful, we have to memorize which index in the array points to which piece of information. For example, to find out what Manning's pass-completion percentage is, we have to know to ask for peyton_manning[2]. You'd think there'd be a better way to store collections of related data of differing types, and there is. Ruby calls it a <em>hash</em>.</p>
+
+
+          <h4 class="blog--section-head">Making a hash of things</h4>
+
+            <p>Like arrays, a Ruby hash is a data type storing a collection of items, and like arrays, hashes can contain data of any and all types, in any combination. The difference between an array and a hash is in how you access that data.</p>
+
+            <p>Remember that an array is an <em>ordered</em> set of values, and you access the values you want using a numeric index. In recent versions of Ruby, a hash also happens to be an ordered set of values (in early Ruby versions, hashes weren't ordered), but you don't access their values using indexes. Instead, data in a hash is stored as key-value pairs. That is, for every value in the hash, there is a key that lets you access it. For example, if I created a hash to keep track of my pets, I might store within it the key<code> :dog</code>, accessing the value<code> "Moose"</code>. Hashes are commonly created in a manner very similar to how we set up arrays, using a structure called a "hash literal". A hash literal creating my full<code> pets </code>hash might look something like this:</p>
+
+            <ul class="code code-block">
+              <li>jeffs_pets = {</li>
+                <li class="code-indent">:dog => "Moose",</li>
+                <li class="code-indent">:turtle => "Max",</li>
+                <li class="code-indent">:fish => ["Larry", "Curly", "Moesha"]</li>
+              <li>}</li>
+            </ul>
+
+            <p>For readability, I typed each key-value pair in the hash on its own line, but I could have legally crammed them all onto a single line. Note that while we used square brackets to contain our array, hashes are held in curly brackets. For each key-value pair in the hash, the key is listed first, followed by the "hash rocket" operator consisting of an equals sign and a greater-than sign, and then the value. Values can be of any type; in this hash, the first two values are strings, but the third value is an array, which is how we assign more than one value to a single key.</p>
+
+            <p>Technically, keys can be any value type as well, but hashes are usually constructed using symbols as keys. (<a href="http://ruby-doc.org/core-2.2.0/Symbol.html">Symbols are a special type of object</a>, similar to strings, but with some special properties we don't need to delve into here.) Symbols can be recognized because they are always begin with a colon, as in<code> :turtle</code>. The syntax to access the values within a hash is similar to that used to get to the values within an array, but in place of the array's numeric indexes, we use the hash's keys inside the square brackets. Lets check out the names of my pets:</p>
+
+            <ul class="code code-block">
+              <li>jeffs_pets[:dog]</li>
+              <li>=> "Moose"</li>
+              <li class="headroom">jeffs_pets[:fish]</li>
+              <li>=>["Larry", "Curly", "Moesha"]</li>
+              <li class="headroom">jeffs_pets[:cat]</li>
+              <li>=> nil</li>
+            </ul>
+
+            <p>So, entering<code> jeffs_pets[:dog] </code>returned my dog's name, Moose, and<code> jeffs_pets[:fish] </code>returnd the full array containing the names of all my fish. When we asked for my cat's name, with<code> jeffs_pets[:cat]</code>, Ruby shrugged and said "nil," which is perfect, since nil, zilch, nada, bupkis, is exactly how many cats I own. In fact, when you ask for the value of a key that is not included in the hash, Ruby will return nil every time. Incidentally, if we want to get to the name of my second fish, we'd just line up two square-bracketed indexes behind the hash name&mdash;first the hash key, then the numeric index within the array, like this:</p>
+
+            <ul class="code code-block">
+              <li>jeffs_pets[:fish][1]</li>
+              <li>=> "Curly"</li>
+            </ul>
+
+            <p>Although Ruby does remember the order of the key-value pairs in a hash, programmers for the most part don't care. Because of this, we don't need a bunch of different methods for accessing, inserting, or removing items in the hash according to their position in the sequence. Adding a new key value pair is a lot like declaring and setting the value of a variable&mdash;you name it, then set it equal to the value.</p>
+
+            <ul class="code code-block">
+              <li>jeffs_pets[:chicken] = "Colonel"</li>
+              <li>=> "Little"</li>
+              <li class="headroom">jeffs_pets</li>
+              <li>=> {:dog=>"Moose", :turtle=>"Max", :fish=>["Larry", "Curly", "Moesha"], :chicken=>"Colonel"}
+            </ul>
+
+            <p>To remove a key-value pair from a hash, you use the<code> delete </code>method, with the name of the key as the argument. This will return the value of the deleted key. Poor Max...</p>
+
+            <ul class="code code-block">
+              <li>jeffs_pets.delete(:turtle)</li>
+              <li>=> "Max"</li>
+              <li class="headroom">jeffs_pets</li>
+              <li>=> {:dog=>"Moose", :fish=>["Larry", "Curly", "Moesha"], :chicken=>"Colonel"}</li>
+            </ul>
+
+            <p>As is the case for arrays, Ruby offers dozens of methods for manipulating hashes. You can read about <a href="http://ruby-doc.org/core-2.2.2/Hash.html">hash methods in the Ruby docs</a>, or get a more newb-friendly <a href="http://www.sitepoint.com/guide-ruby-collections-ii-hashes-sets-ranges/">tutorial on hashes at sitepoint.com</a>.</p>
+
+          <h4 class="blog--section-head">Iteration nation</h4>
+
+            <p>One of the main reasons we use collections like arrays and hashes to store related data is so that we can work with the entire collection...collectively. We often want to search through a collection for specific bits of information, or perform the same action on every single item of the set. Because we've organized our collections into arrays and hashes, ruby lets us accomplish these things easily, using looping and iteration.</p>
+
+            <p>When we loop through an array, or iterate over an array or a hash, we are systematically applying the same bit of code to each item in the collection, exactly one time each. Because arrays are accessed by numeric indexes, we have more flexibility in how we iterate over them than we do with hashes. For starters, we can use simple loops, limited by counters based on the<code> array.size</code>, to do something to every item in an array. (Did you notice I slipped a new method,<code> size</code>, in there? It returns an integer value equal to the number of items in the array.) Here, we'll use an<code> until </code>loop to print out all the members of a new array,<code> beatles</code>:
+
+            <ul class="code code-block">
+              <li>$ beatles = [ "John", "Paul", "George", "Ringo" ]</li>
+              <li>$ counter = 0</li>
+              <li>$ until counter == beatles.size</li>
+              <li class="code-indent">$ puts beatles[counter]</li>
+              <li>$ end</li>
+              <li class="headroom-half">John</li>
+              <li>Paul</li>
+              <li>George</li>
+              <li>Ringo</li>
+              <li>=> nil</li>
+            </ul>
+
+            <p>In this example, our counter started at zero, and went up by 1 with each iteration of the loop. By the time the program had printed "Ringo," the counter had counted up to four. Since the counter was no longer less than the size of the array, the "until" condition was fulfilled, and the loop terminated, having printed the name of each member of the Beatles to the terminal.</p>
+
+            <p>Because we don't use numeric indexes to access the values in hashes, we can't use counters to loop through them with simple tools like<code> while </code>and<code> until</code>. Fortunately, we have the<code> each </code>method, an iterator that does much the same thing, and doesn't care that it doesn't have indexes to work with. Let's store a bit more information about the Beatles in a hash, then use<code> each </code>to print it back out.</p>
+
+            <ul class="code code-block">
+              <li>beatles = {</li>
+              <li class="code-indent">:lead_vocals => "John",</li>
+              <li class="code-indent">:bass => "Paul",</li>
+              <li class="code-indent">:lead_guitar => "George",</li>
+              <li class="code-indent">:drums => "Ringo"</li>
+              <li>}</li>
+              <li>beatles.each { |key, value|</li>
+              <li class="code-indent">puts value + " played " + key.to_s + "."</li>
+              <li>}</li>
+              <li class="headroom-half">John played lead_vocals.</li>
+              <li>Paul played bass.</li>
+              <li>George played lead_guitar.</li>
+              <li>Ringo played drums.</li>
+              <li>=> {:lead_vocals=>"John", :bass=>"Paul", :lead_guitar=>"George", :drums=>"Ringo"}</li>
+            </ul>
+
+            <p>Sure, the sentences are clunky, but you get the idea. Conveniently, arrays have an<code> each </code>method as well. Though what's going on under the hood for the array version of<code> each </code>is a bit different than it is for hash version, the syntax is just about the same. Since Ruby lets us put our<code> each </code>block on a single line if it's simple enough, we'll try that here:</p>
+
+            <ul class="code code-block">
+              <li>beatles = [ "John", "Paul", "George", "Ringo" ]</li>
+              <li>beatles.each { |item| puts item }</li>
+              <li class="headroom-half">John</li>
+              <li>Paul</li>
+              <li>George</li>
+              <li>Ringo</li>
+              <li>=> ["John", "Paul", "George", "Ringo"]</li>
+            </ul>
+
+            <p>If you want to learn more about Ruby loops and iterators, read Alan Skorkin's short-but-sweet introduction to the topic, <a href="http://www.skorks.com/2009/09/a-wealth-of-ruby-loops-and-iterators/">A Wealth of Ruby Loops and Interators</a>.
+
+          <h4 class="blog--section-head">The right tool for the job</h4>
+
+            <p>You've got two different kinds of collections in Ruby&mspace;arrays and hashes&mspace;each with its own strengths. So how do you choose which one to use in any given situation? You have to think about what kind of data you're planning to store, and what you plan to do with it.</p>
+
+            <p>If you've got a list made up of lots of examples of the same kind of thing, such as moves on a chessboard, flavors of ice cream, or your weight recorded every morning for a month, you'll probably want an array. Storing this sort of data in an array makes it easy to put in alphanumeric order, perform statistical calculations on (such as finding the min, max, median, average, etc.), eliminate duplications, and add more values to. If the order of the items in your collection matters, and especially if you anticipate reorganizing that order, then an array is definitely your best bet.</p>
+
+            <p>On the other hand, if your data includes many different kinds of information about a single topic, you probably want a hash. A hash is well-suited to storing customer data collected from a form, for example, which might include strings (first and last name, address), customer number and order number (integers), and products ordered (array). Storing this information in a hash will allow you to attach a label, in the form of a hash key, to each piece of information, such as<code> :first_name</code>,<code> :last_name</code>,<code> :street_address</code>, etc. You can then use the hash keys to retrieve the exact value you need, such as the customer's zip code, instead of having to iterate through the collection searching for it, as you would have to do if your customer information were stored in an array.</p>
+
+            <p class="footroom">Arrays and hashes become even more powerful, however, when you remember that they can both hold arrays and hashes as values, along with other types of objects. For example, you might store the information about each<code> customer </code>in a hash, and then store all of those hashes in an array of<code> customers</code>! Working together in this way, there's almost no collection of data collection that you can't store with Ruby's arrays and hashes.
+
+        </article><!-- /Blog post -->
+
+      </article><!-- Main column -->
+
+      <aside class="ph-col-12 tab-col-4 cmp-col-4 box-item box gtr">
+
+        <section>
+          <header>
+            <h3 class="aside--head headroom footroom-half">About Jeff George</h3>
+          </header>
+
+        <section>
+          <header>
+            <h4 class="hidden">Jeff George's Biography</h4>
+          </header>
+
+          <img class="ph-ins-33 tab-ins-42 cmp-ins-42 aside--img" src="../img/profile-jeff-george.jpg" alt="Jeff George">
+          <p>
+            As I write this blog post, I am enrolled in <a href="http://devbootcamp.com/">Dev Bootcamp</a>, an immersive web-development program in New York City. I'm currently in Phase 0 of the Dev Bootcamp program, a remote-learning phase in which we gain a strong grasp of the basics of technologies like HTML5, CSS3, Ruby, and JavaScript through both independent work and pair-programming. In a few weeks, I'll join the rest of my cohort at the DBC-NY campus in Manhattan's Financial District, for onsite training in technologies and techniques including Ruby on Rails, SQL, test-driven development and agile development.
+          </p>
+          <p>
+            In the years before Dev Bootcamp, I've worked as a teacher, a photographer, a writer and editor, and even as a game designer. Throughout my career, all of my work has revolved around creative communication and problem-solving, and I'm excited to bring that background to the internet as a web developer.
+          </p>
+          <p>
+            I've lived and worked in Austin, TX, San Mateo, CA, and Phoenix, AZ, but for the past two decades, I've been in New York City. I settled in historic <a href="https://en.wikipedia.org/wiki/City_Island,_Bronx">City Island, the Bronx</a> &mdash; New York City's maritime community &mdash; in 2007, with my wife and daughter.</p>
+        </section>
+
+        <section class="txt-ctr footroom">
+          <h4 class="hidden">Contact Jeff George</h4>
+          <a href="mailto:webdevjeffus@gmail.com" class="gtr"><i class="fa fa-envelope-o fa-2x"></i></a>
+          <a href="https://twitter.com/webdevjeffus" class="gtr"><i class="fa fa-twitter fa-2x"></i></a>
+          <a href="https://www.linkedin.com/in/webdevjeffus" class="gtr"><i class="fa fa-linkedin-square fa-2x"></i></a>
+          <a href="https://github.com/webdevjeffus" class="gtr"><i class="fa fa-github-square fa-2x"></i></a>
+        </section>
+
+      </aside>
+
+    </main>
+
+
+    <footer class="footer row gtr txt-ctr">
+
+      <p class="footer--text headroom no-footroom">Website design and developed by <a class="footer--link" href="https://webdevjeffus.github.io/">Jeff George</a></p>
+      <p class="footer--text">All text and images are <a class="footer--link" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise noted.</p>
+
+    </footer>
+
+  </div><!-- /.container -->
+
+</body>
+
+</html>
