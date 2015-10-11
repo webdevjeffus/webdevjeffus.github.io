@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Ruby: #sort and #sort_by | Jeff George</title>
+  <meta name="description" content="How to use Ruby's #sort and #sort_by methods with hashes and arrays by Jeff George, a full-stack web developer based in New York, NY.">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="../css/normalize.min.css">
+  <link rel="stylesheet" href="../css/griddy.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/blog.css">
+
+  <link href='https://fonts.googleapis.com/css?family=Permanent+Marker|Walter+Turncoat|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- HTML5SHIV script borrowed from HTML5Boilerplate -->
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+  <![endif]-->
+</head>
+
+<body>
+  <!-- BROWSER UPGRADE WARNING borrowed from HTML5Boilerplate -->
+  <!--[if lt IE 8]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <div class="container">
+
+    <header class="masthead ref-pt row">
+      <div class="gtr-2x">
+        <h1 class="masthead--logo"><a href="../index.html" class="masthead--logo__link">webdevjeff.us</a></h1>
+        <p class="masthead--subhead ph-hide-blk">Web Developer Jeff George</p>
+      </div>
+
+      <nav class="ph-hide-blk">
+        <ul class="masthead--nav">
+          <a class="masthead--nav-link" href="../index.html"><li class="masthead--nav-item">Home</li></a>
+          <a class="masthead--nav-link" href="../index.html#portfolio"><li class="masthead--nav-item">Work</li></a>
+          <a class="masthead--nav-link" href="../index.html#about"><li class="masthead--nav-item">About</li></a>
+          <a class="masthead--nav-link" href="../index.html#contact"><li class="masthead--nav-item">Contact</li></a>
+        </ul>
+      </nav>
+
+    </header>
+
+
+    <main class="row gtr">
+
+      <article class="ph-col-12 tab-col-8 cmp-col-8"><!-- Main column -->
+
+        <header class="main--header__blog row gtr">
+          <h1 class="main--head__blog headroom-half"><a href="index.html" class="blue-link">Blog</a></h1>
+
+          <!-- BLOG NAV-ARROW ICONS -->
+          <div class="blog-post--nav">
+            <!-- PREVIOUS POST -->
+            <a href="./blog-151004-apprenticeships.html">
+              <i class="fa fa-caret-left fa-3x blog-post--nav-arrow"></i>
+            </a>
+            <!-- BLOG INDEX -->
+            <a href="./index.html">
+              <i class="fa fa-caret-up fa-3x blog-post--nav-arrow-up"></i>
+            </a>
+            <!-- NEXT POST -->
+            <a href="./index.html">
+              <i class="fa fa-caret-right fa-3x blog-post--nav-arrow"></i>
+            </a>
+          </div>
+
+        </header>
+
+
+        <article class="gtr"><!-- Blog post -->
+
+          <header>
+            <p class="hammer headroom no-footroom">Sorting it all out</p>
+            <h3 class="blog--desc no-headroom no-footroom">Using Ruby's #sort and #sort_by methods on arrays and hashes</h3>
+            <p class="blog--date">Oct. 11, 2015</p>
+          </header>
+
+            <p>Blog text.</p>
+
+            <p>Blog text.</p>
+
+          <h4 class="blog--section-head">Blog section head</h4>
+
+            <p>Blog text.</p>
+
+            <p>Blog text.</p>
+
+        </article><!-- /Blog post -->
+
+      </article><!-- Main column -->
+
+      <aside class="ph-col-12 tab-col-4 cmp-col-4 box-item box gtr">
+
+        <section>
+          <header>
+            <h3 class="aside--head headroom footroom-half">About Jeff George</h3>
+          </header>
+
+        <section>
+          <header>
+            <h4 class="hidden">Jeff George's Biography</h4>
+          </header>
+
+          <img class="ph-ins-33 tab-ins-42 cmp-ins-42 aside--img" src="../img/profile-jeff-george.jpg" alt="Jeff George">
+          <p>
+            As I write this blog post, I am enrolled in <a href="http://devbootcamp.com/">Dev Bootcamp</a>, an immersive web-development program in New York City. I'm currently in Phase 0 of the Dev Bootcamp program, a remote-learning phase in which we gain a strong grasp of the basics of technologies like HTML5, CSS3, Ruby, and JavaScript through both independent work and pair-programming. In a few weeks, I'll join the rest of my cohort at the DBC-NY campus in Manhattan's Financial District, for onsite training in technologies and techniques including Ruby on Rails, SQL, test-driven development and agile development.
+          </p>
+          <p>
+            In the years before Dev Bootcamp, I've worked as a teacher, a photographer, a writer and editor, and even as a game designer. Throughout my career, all of my work has revolved around creative communication and problem-solving, and I'm excited to bring that background to the internet as a web developer.
+          </p>
+          <p>
+            I've lived and worked in Austin, TX, San Mateo, CA, and Phoenix, AZ, but for the past two decades, I've been in New York City. I settled in historic <a href="https://en.wikipedia.org/wiki/City_Island,_Bronx">City Island, the Bronx</a> &mdash; New York City's maritime community &mdash; in 2007, with my wife and daughter.</p>
+        </section>
+
+        <section class="txt-ctr footroom">
+          <h4 class="hidden">Contact Jeff George</h4>
+          <a href="mailto:webdevjeffus@gmail.com" class="gtr"><i class="fa fa-envelope-o fa-2x"></i></a>
+          <a href="https://twitter.com/webdevjeffus" class="gtr" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+          <a href="https://www.linkedin.com/in/webdevjeffus" class="gtr" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+          <a href="https://github.com/webdevjeffus" class="gtr" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+        </section>
+
+      </aside>
+
+    </main>
+
+
+    <footer class="footer row gtr txt-ctr">
+
+      <p class="footer--text headroom no-footroom">Website design and developed by <a class="footer--link" href="https://webdevjeffus.github.io/">Jeff George</a></p>
+      <p class="footer--text">All text and images are <a class="footer--link" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> unless otherwise noted.</p>
+
+    </footer>
+
+  </div><!-- /.container -->
+
+</body>
+
+</html>
+
