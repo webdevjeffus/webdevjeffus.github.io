@@ -131,10 +131,16 @@ code,
   color: rgb(  0,  0,  0); /* Lo Blk */
 }
 
+p>code {
+  font-size: 1.1em;
+  line_height: 0.75em;
+}
+
 .code-block {
   list-style: none;
   padding: 1rem 1.2rem;
-  margin: 1rem 1.2rem;
+  margin: 1rem 0;
+  line-height: 1.5rem;
   background-color: rgb(204,204,204); /* Lo Wht */
 }
 
