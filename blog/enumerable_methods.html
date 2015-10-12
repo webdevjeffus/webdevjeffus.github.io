@@ -221,12 +221,33 @@
               <li>&ensp;&ensp;florida: "Tallahassee",</li>
               <li>&ensp;&ensp;new_york: "Albany"</li>
               <li>}</li>
-              <li class="headroom">capitals.source.sort_by{ |k,v| v}.to_h</li>
+              <li class="headroom code-comment"># Sorted alphanumerically (default) by values</li>
+              <li>capitals.sort_by{ |k,v| v }.to_h</li>
               <li>=> {:new_york=>"Albany", :texas=>"Austin", :california=>"Sacremento", :florida=>"Tallahassee"}</li>
+              <li class="headroom code-comment"># Sorted by value length</li>
+              <li>capitals.sort_by{ |k,v| v.length }.to_h</li>
+              <li>=> {:texas=>"Austin", :new_york=>"Albany", :california=>"Sacremento", :florida=>"Tallahassee"}</li>
             </ul>
 
+          <h4 class="blog--section-head">Stupid #sort tricks</h4>
 
-            <p>Blog text.</p>
+            <p>Since we're on the subject of sorting collections, there are two Array methods that I think of as being connected with #sort, conceptually if not technically. These are Array#reverse and Array#shuffle. Each of these methods does to an array exactly what you expect it to: #reverse reverses the order, and #shuffle randomizes the order. Here they are in action:</p>
+
+            <ul class="code-block code">
+              <li class="code-comment"># A normal sort, as a baseline</li>
+              <li>$ [3, 76, 19, 5, 190, 42, 81, 150].sort</li>
+              <li>=> [3, 5, 19, 42, 76, 81, 150, 190]</li>
+              <li class="headroom code-comment"># A one-line sort-and-reverse</li>
+              <li>$ [3, 76, 19, 5, 190, 42, 81, 150].sort.reverse</li>
+              <li>=> [190, 150, 81, 76, 42, 19, 5, 3]</li>
+              <li class="headroom code-comment"># A shuffle of the same array</li>
+              <li>$ [3, 76, 19, 5, 190, 42, 81, 150].shuffle</li>
+              <li>=> [19, 42, 150, 3, 76, 190, 81, 5]</li>
+            </ul>
+
+            <p>If you have an unsorted set, and you need to access it from largest to smallest, there's no reason not to run your #sort and your #reverse on the same line&mdash;doing so is more concise and more clear than writing the two calls on separate lines of code. Of course, if you're shuffling your array, there's no reason sort it first. I include it here because I think of #sort and #shuffle as being opposites. If you want to assign your students to study groups in alphabetic order, sort them before you allocate them; if you want them assigned randomly, shuffle them first.</p>
+
+            <p>#reverse and #shuffle are strictly Array methods, not Enumerable methods, so you can't use them directly on hashes, sets, or ranges. But it's not hard to use #to_a to convert a hash or set into an array in order to reverse it or shuffle, and then convert it back to its original class with #to_h or #to_s. Since a range is an ascending sequence of integers by definition, there's not much point in reversing or shuffling it. You might use a range in conjunction with a loop to populate a large array of numbers without typing in every member, and then reverse or shuffle it, though.</p>
 
         </article><!-- /Blog post -->
 
