@@ -85,13 +85,146 @@
             <p class="blog--date">Oct. 11, 2015</p>
           </header>
 
-            <p>Blog text.</p>
+            <p>Like all collection classes in Ruby, the <a href="http://ruby-doc.org/core-2.2.3/Array.html">Array</a> and <a href="http://ruby-doc.org/core-2.2.3/Hash.html">Hash</a> classes include the <a href="http://ruby-doc.org/core-2.2.3/Enumerable.html">Enumerable</a> module. Enumerable bestows upon classes that include it a wide selection of methods which iterate over collections in many useful ways. In order to include the Enumerable module and use its methods, a collection class must include its own version of the<code> #each </code>method, which provides the Enumerable methods with a basic strategy for iterating over collection objects of that class. In order to function at all, every method in Enumerable must call the class's<code> #each </code>method.</p>
 
-            <p>Blog text.</p>
+            <p>One of the most common operations performed on collections is to sort them according to various criteria. This commonly done using the<code> #sort </code>and<code> #sort_by </code>methods, which are found in the Enumerable module. This can be confusing, because when you are looking for a method to solve a problem, you may not find it among the methods listed in the Ruby docs for the class you expect. On first glance, Hash seems to have <em>no</em> sorting methods, but in fact, Hash (like collection classes Range and Set) uses the base Enumerable versions of<code> #sort </code>and<code> #sort_by</code>&mdash;you just have to go to the Enumerable page to find them. Array, on the other hand, has its own custom versions of<code> #sort </code>and<code> #sort_by</code>, which <em>do</em> appear on the list of Array methods on <a href="http://ruby-doc.org/">Ruby-doc.org</a>. The take-away from this is that when looking for a method to solve a problem, it's important to also check the list for any module the class includes.</p>
 
-          <h4 class="blog--section-head">Blog section head</h4>
+          <h4 class="blog--section-head">Sorting arrays</h4>
 
-            <p>Blog text.</p>
+            <p>Although the #sort and #sort_by methods for the Array class override the default Enumerable versions, we needn't worry about under-the-hood stuff like that here. For our purposes, we can call them on an array object and get a perfectly usable return no matter where the methods themselves are stored. In its simplest form, Array#sort returns a new array, rearranged in alphanumeric order, while leaving the original array unaltered:</p>
+
+            <ul class="code-block code">
+              <li>$ ["oak", "pine", "maple", "elm"].sort</li>
+              <li>=> ["elm", "maple", "oak", "pine"]</li>
+              <li class="headroom-half">$ [4, 17, 2, 9.1, 11, 6].sort</li>
+              <li>=> [2, 4, 6, 9.1, 11, 17]</li>
+            </ul>
+
+            <p>This works fine, so long as all of the items in the array are of the same type, and can be compared directly. That is, #sort works as long as the items in the collection are either <em>all</em> strings or <em>all</em> numbers (#sort can handle a mix of integers and floats, though). If you have a mixture of numbers and strings in your array, #sort will raise an ArgumentError.</p>
+
+            <p>You can #sort an array of arrays, but #sort only considers the value of the first item in each member array when sorting. The other items in the member arrays are ignored. This means that #sort will leave [3, 6] and [3, 2] in that order, if that's how they appear in the original array. But it also means that member arrays do not have to be of the same length, and that only the first items in each member array need to be of matching type. The second and subsequent items can be a mixture of strings, numbers, or other objects. Here are some examples of sorted arrays:</p>
+
+            <ul class="code-block code">
+              <li>$ [[4, 7], [2, 1], [8, 6]].sort</li>
+              <li>=> [[2, 1], [4, 7], [8, 6]]</li>
+              <li class="headroom-half">[[7, 14], [2], [5, 4, 9]].sort</li>
+              <li>=> [[2], [5, 4, 9], [7, 14]]</li>
+              <li class="headroom-half">$ [["fazz", 7], ["bargle", ["a", "z"]], ["goo", 6]].sort</li>
+              <li>=> [["bargle", ["a", "z"]], ["fazz", 7], ["goo", 6]]</li>
+            </ul>
+
+          <h4 class="blog--section-head">Other sorts of #sorts</h4>
+
+            <p>If you need to sort an array by some criterion other than alphanumeric order&mdash;perhaps by size&mdash;you'll need to tell #sort how you want to compare the items in the array by passing a code block to the method that defines the comparison for your sort. The syntax for the code block is<code> { |item_1, item_2| item_1_code &lt;=> item_2_code }</code>. In this example, we're calling #size on each element for the sort:</p>
+
+            <ul class="code-block code">
+              <li>$ ["fanz","dru", "ba"].sort{|a,b| a.size &lt;=> b.size }</li>
+              <li>=> ["ba", "dru", "fanz"]</li>
+            </ul>
+
+            <p>As you can imagine, the code block for a #sort can become unweildy very quickly. For non-alphanumeric sorts, you might prefer the #sort_by method, which lets you define how to evaluate each item to be sorted just once, and eliminates the spaceship comparison operator. The syntax for the #sort_by code block is simply<code> { |item| item_code }</code>, so the block for our #size-based sort becomes <code>{ |a| a.size }</code>. If you're calling a single method on your objects, as we are here, there's also a Ruby shorthand syntax to make it even shorter. You can use an ampersand to represent the object, and the symbol form of the method name:<code> (&amp;:size)</code>. Here we see both versions of #sort_by in action:<p>
+
+            <ul class="code-block code">
+              <li>$ ["glo", "mambo", "iz", "thoo"].sort_by{ |a| a.size }</li>
+              <li>=> ["iz", "glo", "thoo", "mambo"]</li>
+              <li class="headroom-half">$ [[3, 6, 5], [9], [8, 7, 6, 4]].sort_by(&amp;:size)</li>
+              <li>=> [[9], [3, 6, 5], [8, 7, 6, 4]]</li>
+            </ul>
+
+          <h4 class="blog--section-head">Mixed #sorts</h4>
+
+            <p>If you need to sort an array with members that are not comparable&mdash;a mix of strings and numbers, most likely&mdash;a simple #sort will fail, raising an ArgumentError. You can use #sort_by in conjunction with #to_s to sort a mixed array, but sorting numbers as strings will put <strong>25</strong> before <strong>8</strong>; alphanumeric sorting has no awareness of place value. To properly perform an alphanumeric sort on an array of mixed numbers and strings, you can use #partition to sift the numbers and strings into two separate sub-arrays, sort each sub-array separately, and then use #flatten to turn them back into a single array.</p>
+
+            <ul class="code-block code">
+              <li class="code-comment"># Using #sort_by and #to_s&hellip;</li>
+              <li>$ ["r",7,"gobs",3].sort_by(&amp;:to_s)</li>
+              <li>=> [3, 7, "gobs", "r"]</li>
+              <li class="headroom">$ ["r",7,"gobs",356].sort_by(&amp;:to_s)</li>
+              <li>=> [356, 7, "gobs", "r"]</li>
+              <li class="headroom code-comment"># Using #partition, two #sorts, and #flatten&hellip;</li>
+              <li>$ array = ["zoi", 5, "trak", 2.3, 144, "ak"]</li>
+              <li>$ array = array.partition{|a| a.is_a? Numeric}</li>
+              <li>$ array[0].sort!</li>
+              <li>$ array[1].sort!</li>
+              <li>$ array.flatten!</li>
+              <li>=> [2.3, 5, 144, "ak", "trak", "zoi"]</li>
+            </ul>
+
+            <p>Note that the first example works because the array contains only single-digit numbers. When we make one of the numbers three digits long, in the second example, sorting numbers as strings no longer works&mdash;7 should come before 356, but it doesn't. Negative numbers and floats would further confuse a sort by strings. The third example is more complex, but it sorts numbers and strings correctly according to alphanumeric rules, no matter how many digits are in the numbers. As the sorting criterion for #partition, we pass a code block that checks if each item is a member of the class Numeric; this catches all numbers of all classes, including Floats, Fixnums, and Bignums. The first #sort sorts only the numbers, and the second sorts only the strings. We turn it all back into a single array by calling #flatten.</p>
+            <p>The algorithm above is set up to sort the existing array in place. If you need a non-destructive version, you can write a method, like this:</p>
+
+            <ul class="code-block code">
+              <li class="code-comment"># Non-destructive method; returns a new sorted array.</li>
+              <li>def alphanumeric_sort(array)</li>
+              <li>&ensp;&ensp;sorted_array = array.clone</li>
+              <li>&ensp;&ensp;sorted_array = sorted_array.partition do |a|</li>
+              <li>&ensp;&ensp;&ensp;&ensp;a.is_a? Numeric</li>
+              <li>&ensp;&ensp;end</li>
+              <li>&ensp;&ensp;sorted_array[0] = sorted_array[0].sort</li>
+              <li>&ensp;&ensp;sorted_array[1] = sorted_array[1].sort_by(&:downcase)</li>
+              <li>&ensp;&emsp;sorted_array.flatten</li>
+              <li>end</li>
+              <li class="headroom">test_array = ["wap", 7, "Pron", 153, 7.89, "ig"]</li>
+              <li class="headroom">alphanumeric_sort(test_array)</li>
+              <li>=> [7, 7.89, 153, "ig", "Pron", "wap"]</li>
+            </ul>
+
+            <p>This <code> #alphanumeric_sort </code>method begins with the Object#clone method, which creates an identical but separate array object to work on&mdash;that's why it's non-destructive. Not only does it handle positive and negative integers as well as floats, but because it's non-destructive, I can use #sort_by and #downcase to sort the strings sub-array. This makes the method sort capital and lower-case letters together, like a dictionary. Note that I switched to a multi-line, do/end syntax for the #partition call simply to shorten the lines and avoid a confusing line-wrap on this page&mdash;there's no reason not to use the single-line, curly-braces syntax for that code block in a real text editor.</p>
+
+
+
+          <h4 class="blog--section-head">Sorting hashes</h4>
+
+            <p>In some ways, sorting hashes with #sort is trickier than arrays, because each member of a hash is a pair of values&mdash;a matched key and value. By default, #sort reorders the members of a hash  alphanumerically, by their keys, like this:</p>
+
+            <ul class="code-block code">
+              <li>test_hash = {</li>
+              <li>&ensp;&ensp;toyota: "Corolla",</li>
+              <li>&ensp;&ensp;ford: "Mustang",</li>
+              <li>&ensp;&ensp;chevrolet: "Volt",</li>
+              <li>&ensp;&ensp;dodge: "Charger"</li>
+              <li>}</li>
+              <li class="headroom">test_hash.sort</li>
+              <li>=> [[:chevrolet, "Malibu"], [:dodge, "Charger"], [:ford, "F-150"], [:toyota, "Corolla"]]</li>
+            </ul>
+
+            <p>Not only are hashes sorted by their keys, but they aren't returned in a hash. Instead, they come back as a two-dimensional array, because that's how #sort (and all the rest of the Enumerable methods) handle them. We can easily turn the returned array back into a hash by adding #to_h after the #sort call, though:</p>
+
+            <ul class="code-block code">
+              <li>test_hash.sort.to_h</li>
+              <li>=> {:chevrolet=>"Malibu", :dodge=>"Charger", :ford=>"F-150", :toyota=>"Corolla"}</li>
+            </ul>
+
+            <p>As with arrays, #sort works on hashes so long as the keys are all the same data type. Usually, the keys in a hash will all be symbols, or all be strings; #sort still works if they are all numbers, too, though this isn't very common in real programs. Here we see a hash of the households on Beech street, with house numbers as keys and residents' surnames as values:</p>
+
+            <ul class="code-block code">
+              <li>beech_street_homes = {</li>
+              <li>&ensp;&ensp;67 => "Plum",</li>
+              <li>&ensp;&ensp;145 => "Mustard",</li>
+              <li>&ensp;&ensp;13 => "Scarlet",</li>
+              <li>&ensp;&ensp;119 => "Green"</li>
+              <li>}</li>
+              <li class="headroom">beech_street_homes.sort.to_h</li>
+              <li>=> {13=>"Scarlet", 67=>"Plum", 119=>"Green", 145=>"Mustard"}</li>
+            </ul>
+
+            <p>It's pretty unlikely that you'll have a hash with keys of mixed data types, but if you do, a simple #sort won't work on it&mdash;it will raise the same ArgumentError we got above, with arrays. As long as the keys are what you want to sort by, you can use the same techniques I described for arrays. If you need to sort the values, however, the easiest way to do that is with #sort_by.</p>
+
+          <h4 class="blog--section-head">Sorting by hash keys</h4>
+
+            <p>The easiest way to sort a hash by the value in its key-value pairs is to use the #sort_by method. To make #sort_by use the values to sort the pairs, use this code block:<code> { |key,value| value }</code>. This tells #sort_by to perform its default alphanumeric sort on the hash, based on the values in the key-value pairs instead of the keys. If you have a different search criterion, such as the length of the values, you can add the appropriate method to the code block as well. In this example, I also added #to_h to turn the two-dimensional array returned by #sort_by back into a hash, as I did in the examples above. </p>
+
+            <ul class="code-block code">
+              <li>capitals = {</li>
+              <li>&ensp;&ensp;texas: "Austin",</li>
+              <li>&ensp;&ensp;california: "Sacremento",</li>
+              <li>&ensp;&ensp;florida: "Tallahassee",</li>
+              <li>&ensp;&ensp;new_york: "Albany"</li>
+              <li>}</li>
+              <li class="headroom">capitals.source.sort_by{ |k,v| v}.to_h</li>
+              <li>=> {:new_york=>"Albany", :texas=>"Austin", :california=>"Sacremento", :florida=>"Tallahassee"}</li>
+            </ul>
+
 
             <p>Blog text.</p>
 
