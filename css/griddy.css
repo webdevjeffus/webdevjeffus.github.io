@@ -460,7 +460,8 @@ html {
 .headroom-bx-less { margin-top: 0.5rem; }
 
 /* Add or remove space below element - usually <h_> or <p> */
-.footroom    { margin-bottom: 1em; }
+.footroom-more { margin-bottom: 1.5rem; }
+.footroom    { margin-bottom: 1rem; }
 .footroom-half { margin-bottom: 0.5rem; }
 .no-footroom {
   padding-bottom: 0;
