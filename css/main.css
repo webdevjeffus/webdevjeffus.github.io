@@ -148,6 +148,14 @@ p>code {
   padding-left: 1.2em;
 }
 
+.code-indent-2x {
+  padding-left: 2.4em;
+}
+
+.code-indent-3x {
+  padding-left: 3.6em;
+}
+
 .code-comment {
   color: rgb( 127, 127, 127); /* Gray */
 }
