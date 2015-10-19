@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Defining Ruby Classes | Jeff George</title>
+  <meta name="description" content="Technical blog post by Jeff George, a full-stack web developer based in New York, NY.">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="../css/normalize.min.css">
+  <link rel="stylesheet" href="../css/griddy.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/blog.css">
+
+  <link href='https://fonts.googleapis.com/css?family=Permanent+Marker|Walter+Turncoat|Open+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- HTML5SHIV script borrowed from HTML5Boilerplate -->
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+  <![endif]-->
+</head>
+
+<body>
+  <!-- BROWSER UPGRADE WARNING borrowed from HTML5Boilerplate -->
+  <!--[if lt IE 8]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <div class="container">
+
+    <header class="masthead ref-pt row">
+      <div class="gtr-2x">
+        <h1 class="masthead--logo"><a href="../index.html" class="masthead--logo__link">webdevjeff.us</a></h1>
+        <p class="masthead--subhead ph-hide-blk">Web Developer Jeff George</p>
+      </div>
+
+      <nav class="ph-hide-blk">
+        <ul class="masthead--nav">
+          <a class="masthead--nav-link" href="../index.html"><li class="masthead--nav-item">Home</li></a>
+          <a class="masthead--nav-link" href="../index.html#portfolio"><li class="masthead--nav-item">Work</li></a>
+          <a class="masthead--nav-link" href="../index.html#about"><li class="masthead--nav-item">About</li></a>
+          <a class="masthead--nav-link" href="../index.html#contact"><li class="masthead--nav-item">Contact</li></a>
+        </ul>
+      </nav>
+
+    </header>
+
+
+    <main class="row gtr">
+
+      <article class="ph-col-12 tab-col-8 cmp-col-8"><!-- Main column -->
+
+        <header class="main--header__blog row gtr">
+          <h1 class="main--head__blog headroom-half"><a href="index.html" class="blue-link">Blog</a></h1>
+
+          <!-- BLOG NAV-ARROW ICONS -->
+          <div class="blog-post--nav">
+            <!-- PREVIOUS POST -->
+            <a class="blog-post--nav-link" href="./enumerable_methods.html">
+              <i class="fa fa-caret-left fa-3x blog-post--nav-arrow"></i>
+            </a>
+            <!-- BLOG INDEX -->
+            <a class="blog-post--nav-link" href="./index.html">
+              <i class="fa fa-caret-up fa-3x blog-post--nav-arrow-up"></i>
+            </a>
+            <!-- NEXT POST -->
+            <a class="blog-post--nav-link" href="./index.html">
+              <i class="fa fa-caret-right fa-3x blog-post--nav-arrow"></i>
+            </a>
+          </div>
+
+        </header>
+
+
+        <article class="gtr"><!-- Blog post -->
+
+          <header>
+            <p class="hammer headroom no-footroom">Stay classy!</p>
+            <h3 class="blog--desc no-headroom no-footroom">Defining a Class in Ruby</h3>
+            <p class="blog--date">Oct. 18, 2015</p>
+          </header>
+
+            <p>As programming languages go, Ruby is object-oriented in a big way. Everything in Ruby is an object, and everything you do to anything is a method called on an object. Tying these objects and methods together are special object categories, called <strong>classes</strong>. Every object belongs to some class. Even a plain old string, like<code> "Hello, World!"</code>, is an example (or more properly, an <em>instance</em>) of the String class. And because that string is an instance of the String class, there are literally dozens of String-class methods that you can call on it, like<code> String#length:</code></p>
+
+            <ul class="code-block code">
+              <li>$ "Hello, World!".length</li>
+              <li class="code-comment">=> 13</li>
+            </ul>
+
+            <p>But you're not limited to the built-in array of classes, like String, Array, Hash, and Integer. Ruby is happy to let you create your own classes, from which you can create your own objects. Let's take a look at how a new class is defined in Ruby.</p>
+
+          <h4 class="blog--section-head">Head of the Class</h4>
+
+            <p>A class definition is very similar to a method definition. The first line is a keyword,<code> class</code>, followed by the name of the class, which must start with a capital letter. The last line is the keyword<code> end</code>, and everything in between defines the variables and methods common to all members of the class. Throughout this blog post, I'll build an example class,<code> Bank</code>, which models my 8-year-old daughter's piggy-bank. Here's how it begins:</p>
+
+            <ul class="code-block code">
+              <li>class Bank</li>
+              <li class="headroom-half code-comment code-indent"># Define variables and methods here.</li>
+              <li class="headroom-half">end</li>
+            </ul>
+
+            <p>The first thing that appears inside a class definition are its <em>attribute accessors</em>&mdash;special methods that create instance variables (more on instance variables in a minute) and make them accessable beyond the object's class methods. There are three options for attribute accessors:<code> attr_reader</code>, which makes it possible to return the value of the variable from outside the object, but not to alter it;<code> attr_writer</code>, which lets you change the value of the variable, but not read it; and <code>attr_accessor</code>, which lets you both read from and write to the variable. For our Bank class, I know I'll need two variables, "balance" and "unmatched_deposits," and since I want to be able to read their values from outside the object, but not change them, I'll give them both read-only attribute accessors:</p>
+
+            <ul class="code-block code">
+              <li>class Bank</li>
+              <li class="headroom-half code-indent">attr_reader :balance</li>
+              <li class="code-indent">attr_reader :unmatched_deposits</li>
+              <li class="headroom-half">end</li>
+            </ul>
+
+            <p>Note that the attribute accessor methods use colons to name instance variables with symbols. Our Bank class definition now has two variables, but those variables have no values. To set their initial values, we'll need to write a special method for the class, called<code> #initialize</code>. This is the class method that gets called behind the scenes when you create a new object belonging to that class (technically, "instantiating" the object). <code>#initialize </code>sets the values of the instance variables for that object, either to default values, or to values that are passed into the<code> #initialize </code>method as arguments. We'll have one of each in our Bank class.</p>
+
+            <ul class="code-block code">
+              <li>class Bank</li>
+              <li class="headroom-half code-indent">attr_reader :balance</li>
+              <li class="code-indent">attr_reader :unmatched_deposits</li>
+              <li class="headroom-half code-indent">def initialize(balance)</li>
+              <li class="code-indent-2x">@balance = balance</li>
+              <li class="code-indent-2x">@unmatched_deposits = 0</li>
+              <li class="code-indent">end</li>
+              <li class="headroom-half">end</li>
+            </ul>
+
+            <p>When we create an instance of our Bank class, we obviously need to know the starting balance&mdash;the amount you're putting in at the beginning. My daughter has a very good reason to keep a running total of her deposits as well, for reasons that will become apparent down the page. For now, trust me when I name that instance variable "unmatched_deposits" and set it to a default value of 0.</p>
+
+            <p>Notice that these two variables,<code> @balance </code>and<code> @unmateched_deposits</code>, begin with an "at-sign." In Ruby, the at-sign signifies <em>instance variables</em>, which are variables that are attached to specific instances of a class. Thus, every bank object that we create using this Bank class will have it's own @balance and @unmatched_deposits values. Unlike local variables, which are forgotten as soon as the method that created them ends, instance variables persist as long as the object they belong to exists. Also, they may be accessed&mdash;read from or written to&mdash;by any class method that is called on the object.</p>
+
+            <p>If your class has instance variables that won't need to be accessed by anything except the object's class methods, you don't have to use attribute accessors to create them. Instead, you can just add them inside the<code> #initialize </code>method, and set their starting values there. For example, if we needed to set an interest rate for our Bank objects (that would make them pretty special piggy banks!) we could create an instance variable and set its default value in the<code> #initialize </code>method, with a line like this:<code> @interest_rate = 0</code>. We could still define a class method to report or change the interest rate, but we wouldn't be able to access it any other way, because we didn't give it an attribute accessor. If we <em>were</em> to try to access it, we'd crash the program with a <strong>NoMethodError</strong>.</p>
+
+          <h4 class="blog--section-head">Making Bank</h4>
+
+            <p>We now have enough of a Bank class to create a piggy bank, and to find out how much money is in it. We can do that by instantiating a bank object, and then calling the attribute reader<code> #balance </code>on it.</p>
+
+            <ul class="code code-block">
+              <li>$ piggy_bank = Bank.new(10.00)</li>
+              <li class="code-comment">=> #&lt;Bank:0x00000001be35d8&gt;</li>
+              <li>$ piggy_bank.balance</li>
+              <li class="code-comment">=> 10.0</li>
+            </ul>
+
+            <p>Here we've created a piggy_bank object, which is a member of the Bank class, and given it a starting balance of $10.00. The value returned by creating the object is its object ID, a unique number that marks that object's location in the computer's memory. Then we checked the balance in the piggy_bank, by calling<code> #balance </code>on it, which returned the current balance as a number with a floating-point decimal value, commonly called a <em>float</em>.</p>
+
+          <h4 class="blog--section-head">Methods to our madness</h4>
+
+            <p>Unfortunately, we can't <em>do</em> anything with our Bank objects yet, except create them. To be able to put money in or take it back out, we need to add more methods to the Bank class. Because these will be class methods, they will be able to access and manipulate the piggy_bank's instance variables. Let's define methods to deposit money into the bank, and take it out again:</p>
+
+            <ul class="code-block code">
+              <li>class Bank</li>
+              <li class="headroom-half code-indent">attr_reader :balance</li>
+              <li class="code-indent">attr_reader :unmatched_deposits</li>
+              <li class="headroom-half code-indent">def initialize(balance)</li>
+              <li class="code-indent-2x">@balance = balance</li>
+              <li class="code-indent-2x">@unmatched_deposits = 0</li>
+              <li class="code-indent">end</li>
+              <li class="headroom-half code-indent">def deposit(amount)</li>
+              <li class="code-indent-2x">@balance += amount</li>
+              <li class="code-indent">end</li>
+              <li class="headroom-half code-indent">def withdraw(amount)</li>
+              <li class="code-indent-2x">@balance -= amount</li>
+              <li class="code-indent">end</li>
+              <li class="headroom-half">end</li>
+            </ul>
+
+            <p>Each of these methods takes the argument it receives when it's called, and applies it to the instance variable<code> @balance</code>. Because<code> @balance </code>is an instance variable, it's available to Bank class methods like<code> #deposit </code>and<code> #withdraw </code>without needing to be passed in as an argument. Let's see what happens when my daughter adds $3.25 to the $10 already in her piggy_bank, and then takes $2.50 back out.</p>
+
+            <ul class="code code-block">
+              <li>$ piggy_bank.balance</li>
+              <li class="code-comment">=> 10.0</li>
+              <li>$ piggy_bank.deposit(3.25)</li>
+              <li class="code-comment">=> 13.25</li>
+              <li>$ piggy_bank.withdraw(2.50)</li>
+              <li class="code-comment">=> 10.75</li>
+            </ul>
+
+            <p>As you see, our<code> Bank#deposit </code>and<code> Bank#withdraw </code>methods change the value of the<code> @balance </code>instance variable, and return the new balance in the account.</p>
+
+          <h4 class="blog--section-head">Dancing and chewing gum at the same time</h4>
+
+            <p>Of course, we might want to have class methods that do more than one thing at a time, to more than one instance variable. This is perfectly possible, and an excellent example of it can be seen in the deal that my daughter worked out with her grandfather. Remember that instance variable we set up in the beginning,<code> @unmatched_deposits</code>? Here's where we get to use it.</p>
+
+            <p>My daughter has convinced my dad to match any money she saves in her piggy bank whenever he comes to visit. So we need to modify the</code> Bank#deposit </code>method to keep a running total of deposits my daughter makes. We also need to define a new method that adds the matching funds that my father deposits in her bank and resets the<code> @unmatched_deposits </code>total back to 0. Let's do both of those now:</p>
+
+            <ul class="code-block code">
+              <li>class Bank</li>
+              <li class="headroom-half code-indent">attr_reader :balance</li>
+              <li class="code-indent">attr_reader :unmatched_deposits</li>
+              <li class="headroom-half code-indent">def initialize(balance)</li>
+              <li class="code-indent-2x">@balance = balance</li>
+              <li class="code-indent-2x">@unmatched_deposits = 0</li>
+              <li class="code-indent">end</li>
+              <li class="headroom-half code-indent">def deposit(amount)</li>
+              <li class="code-indent-2x">@balance += amount</li>
+              <li class="code-indent-2x">@unmatched_deposits += amount <span class="code-comment"># New line of code</span></li>
+              <li class="code-indent">end</li>
+              <li class="headroom-half code-indent">def withdraw(amount)</li>
+              <li class="code-indent-2x">@balance -= amount</li>
+              <li class="code-indent">end</li>
+              <li class="headroom-half code-indent">def match_deposits <span class="code-comment"># New method</span></li>
+              <li class="code-indent-2x">matching_deposit = @unmatched_deposits</li>
+              <li class="code-indent-2x">@unmatched_deposits = 0</li>
+              <li class="code-indent-2x">@balance += matching_deposit</li>
+              <li class="code-indent-2x code-comment"># So grandpa knows how much to kick in:</li>
+              <li class="code-indent-2x">return matching_deposit</li>
+              <li class="code-indent">end</li>
+              <li class="headroom-half">end</li>
+            </ul>
+
+            <p>By now, we've put together a pretty robust little class. Let's see what happens when my daugher works her magic on her granddad. We'll assume the deposit-matching is a new deal, and not go back in time to match her earlier deposits.</p>
+
+            <ul class="code code-block">
+              <li>$ piggy_bank.balance</li>
+              <li class="code-comment">=> 10.75</li>
+              <li>$ piggy_bank.unmatched_deposits</li>
+              <li class="code-comment">=> 0.0</li>
+              <li>$ piggy_bank.deposit(5.00)</li>
+              <li class="code-comment">=> 15.75</li>
+              <li>$ piggy_bank.unmatched_deposits</li>
+              <li class="code-comment">=> 5.0</li>
+              <li>$ piggy_bank.deposit(7.50)</li>
+              <li class="code-comment">=> 23.25</li>
+              <li>$ piggy_bank.unmatched_deposits</li>
+              <li class="code-comment">=> 12.5</li>
+              <li>$ piggy_bank.match_deposits</li>
+              <li class="code-comment">=> 12.5</li>
+              <li>$ piggy_bank.balance</li>
+              <li class="code-comment">=> 35.75</li>
+              <li>$ piggy_bank.unmatched_deposits</li>
+              <li class="code-comment">=> 0.0</li>
+            </ul>
+
+            <p>It's good to be eight years old, isn't it?</p>
+
+          <h4 class="blog--section-head">You've got class!</h4>
+
+            <p class="footroom">There's lots more you can do with classes in Ruby. In fact, there's almost nothing you can do <em>without</em> them. But if you've made it this far, you know enough to start defining some useful classes of your own. Stay classy!</p>
+
+        </article><!-- /Blog post -->
+
+      </article><!-- Main column -->
+
+      <aside class="ph-col-12 tab-col-4 cmp-col-4 box-item box gtr">
+
+        <section>
+          <header>
+            <h3 class="aside--head headroom footroom-half">About Jeff George</h3>
+          </header>
+
+        <section>
+          <header>
+            <h4 class="hidden">Jeff George's Biography</h4>
+          </header>
+
+          <img class="ph-ins-33 tab-ins-42 cmp-ins-42 aside--img" src="../img/profile-jeff-george.jpg" alt="Jeff George">
+          <p>
+            As I write this blog post, I am enrolled in <a href="http://devbootcamp.com/">Dev Bootcamp</a>, an immersive web-development program in New York City. I'm currently in Phase 0 of the Dev Bootcamp program, a remote-learning phase in which we gain a strong grasp of the basics of technologies like HTML5, CSS3, Ruby, and JavaScript through both independent work and pair-programming. In a few weeks, I'll join the rest of my cohort at the DBC-NY campus in Manhattan's Financial District, for onsite training in technologies and techniques including Ruby on Rails, SQL, test-driven development and agile development.
+          </p>
+          <p>
+            In the years before Dev Bootcamp, I've worked as a teacher, a photographer, a writer and editor, and even as a game designer. Throughout my career, all of my work has revolved around creative communication and problem-solving, and I'm excited to bring that background to the internet as a web developer.
+          </p>
+          <p>
+            I've lived and worked in Austin, TX, San Mateo, CA, and Phoenix, AZ, but for the past two decades, I've been in New York City. I settled in historic <a href="https://en.wikipedia.org/wiki/City_Island,_Bronx">City Island, the Bronx</a> &mdash; New York City's maritime community &mdash; in 2007, with my wife and daughter.</p>
+        </section>
+
+        <section class="txt-ctr footroom">
+          <h4 class="hidden">Contact Jeff George</h4>
+          <a href="mailto:webdevjeffus@gmail.com" class="gtr"><i class="fa fa-envelope-o fa-2x"></i></a>
+          <a href="https://twitter.com/webdevjeffus" class="gtr" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+          <a href="https://www.linkedin.com/in/webdevjeffus" class="gtr" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+          <a href="https://github.com/webdevjeffus" class="gtr" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+        </section>
+
+      </aside>
+
+    </main>
+
+
+    <footer class="footer row gtr txt-ctr">
+
+      <p class="footer--text headroom no-footroom">Website design and developed by <a class="footer--link" href="https://webdevjeffus.github.io/">Jeff George</a></p>
+      <p class="footer--text">All text and images are <a class="footer--link" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> unless otherwise noted.</p>
+
+    </footer>
+
+  </div><!-- /.container -->
+
+</body>
+
+</html>
+

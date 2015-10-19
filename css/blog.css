@@ -48,3 +48,8 @@
   top: 0.1em; */
   padding-left: 0.1em;
 }
+
+.blog-post--nav-link:hover,
+.blog-post--nav-link:active {
+  text-decoration: none;
+}
