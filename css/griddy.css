@@ -447,9 +447,10 @@ html {
 
 
 /* Add or remove space above element - usually <h_> or <p> */
-.headroom    { padding-top: 1rem; }
-.headroom-half { padding-top: 0.5rem; }
-.no-headroom {
+.headroom-more  { padding-top: 1.5rem; }
+.headroom       { padding-top: 1rem; }
+.headroom-half  { padding-top: 0.5rem; }
+.no-headroom    {
   padding-top: 0;
   margin-top: 0;
 }
