@@ -4,7 +4,8 @@
   float: left;
 }
 
-.main--header__work {
+.main--header__work,
+.work--sample {
   border-bottom: 2px solid rgb( 52, 60,163); /* Md Blu */
 }
 
@@ -47,4 +48,9 @@
   /* position: relative;
   top: 0.1em; */
   padding-left: 0.1em;
+}
+
+.work-post--nav-link:hover,
+.work-post--nav-link:active {
+  text-decoration: none;
 }

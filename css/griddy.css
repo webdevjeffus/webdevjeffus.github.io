@@ -124,7 +124,6 @@ img {
 
 html {
   font-size: 12px;
-
 }
 
 .container {
@@ -458,6 +457,7 @@ html {
 /* Increase or decrease MARGIN space above element - usually a .box-item */
 
 .headroom-bx-more { margin-top: 1.5rem; }
+.headroom-bx      { margin-top: 1rem;}
 .headroom-bx-less { margin-top: 0.5rem; }
 
 /* Add or remove space below element - usually <h_> or <p> */

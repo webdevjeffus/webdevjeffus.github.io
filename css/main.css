@@ -58,6 +58,10 @@ p {
   line-height: 1.6;
 }
 
+.debug {
+  border: 1px red dotted;
+}
+
 a:link,
 a:visited {
   color: rgb( 18,115, 70); /* Md Grn */
