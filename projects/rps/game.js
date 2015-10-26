@@ -65,7 +65,7 @@ function displayMoves() {
       playerMove.innerHTML = "<i class='fa fa-hand-paper-o'></i>";
       break;
     default: // "scissors"
-      playerMove.innerHTML = "<i class='fa fa-hand-scissors-o'></i>";
+      playerMove.innerHTML = "<i class='fa fa-hand-scissors-o fa-flip-horizontal'></i>";
       break;
     }
 
