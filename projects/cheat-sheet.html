@@ -95,7 +95,7 @@
               <p class="section--minor-head txt-ctr">
                 <a href="#iteration">Interation</a>
               </p>
-              <ul class="no-bullets">
+              <ul class="no-bullets footroom-more">
                 <li><a href="#each" title="#each">#each</a></li>
                 <li><a href="#eachIndex" title="#each_index">#each_index</a></li>
                 <li><a href="#eachSlice" title="#each_slice">#each_slice</a></li>
@@ -104,6 +104,11 @@
                 <li><a href="#map" title="#map">#map</a></li>
                 <li><a href="#mapBang" title="#map!">#map!</a></li>
               </ul>
+
+              <p class="section--minor-head headroom-2x">
+                <a href="#about">About this<br>reference sheet</a>
+              </p>
+
             </section>
 
             <section class="ph-col-6 tab-col-4 cmp-col-2 txt-ctr">
@@ -159,21 +164,41 @@
               <p class="section--minor-head">
                 <a href="#manipulation">Manipulation</a>
               </p>
+              <section class="no-headroom">
+                <ul class="no-bullets no-headroom">
+                  <li><a href="#sliceBang" title="#slice!">#slice!</a></li>
+                  <li><a href="#push" title="#push">#push</a></li>
+                  <li><a href="#pop" title="#pop">#pop</a></li>
+                  <li><a href="#unshift" title="#unshift">#unshift</a></li>
+                  <li><a href="#shift" title="#shift">#shift</a></li>
+                  <li><a href="#insert" title="#insert">#insert</a></li>
+                  <li><a href="#delete" title="#delete">#delete</a></li>
+                  <li><a href="#selectBang" title="#select!">#select!</a></li>
+                  <li><a href="#rejectBang" title="#reject!">#reject!</a></li>
+                  <li><a href="#concat" title="#concat">#concat</a></li>
+                  <li><a href="#replace" title="#replace">#replace</a></li>
+                  <li><a href="#uniqBang" title="#uniq!">#uniq!</a></li>
+                  <li><a href="#compactBang" title="#compact!">#compact!</a></li>
+                  <li><a href="#clear" title="#clear">#clear</a></li>
+                </ul>
+              </section>
             </section>
 
             <section class="ph-col-6 tab-col-4 cmp-col-2 txt-ctr">
               <p class="section--minor-head">
                 <a href="#reordering">Reordering</a>
               </p>
+              <ul class="no-bullets no-headroom">
+                <li><a href="#sort" title="#sort">#sort</a></li>
+                <li><a href="#shuffle" title="#shuffle">#shuffle</a></li>
+                <li><a href="#reverse" title="#reverse">#reverse</a></li>
+                <li><a href="#rotate" title="#rotate">#rotate</a></li>
+                <li><a href="#flatten" title="#flatten">#flatten</a></li>
+                <li><a href="#transpose" title="#transpose">#transpose</a></li>
+              </ul>
             </section>
 
-            <!--
-            <section class="ph-col-6 tab-col-4 cmp-col-2 txt-ctr">
-              <p class="section--minor-head">
-                <a href="#about">About</a>
-              </p>
-            </section>
-            -->
+
 
           </section><!-- /Methods index -->
 
@@ -664,33 +689,33 @@
 
             <section class="ph-col-12 cmp-col-6 section__boxed--l-col"><!-- Manipulation lft col -->
 
-              <h4 class="code warning">Array#slice(index)</h4>
+              <h4 id="sliceBang" class="code warning">Array#slice!(index)</h4>
               <p class="hang-indent"><b>Action:</b> Deletes the item at <index> from the original array.
               <p class="hang-indent"><b>Returns:</b> Item at <i>index</i>.</p>
-              <p class="hang-indent"><b>Note:</b> Called with two <i>integer</i> arguments, #slice(index, quantity) deletes <i>quantity</i> items beginning at <i>index</i>, and returns an array containing the deleted items. Called with a <i>range</i> argument, #slice(range) deletes items at the indices specified by the range, and returns them.</p>
+              <p class="hang-indent"><b>Note:</b> Called with two <i>integer</i> arguments, <b>#slice!(index, quantity)</b> deletes <i>quantity</i> items beginning at <i>index</i>, and returns an array containing the deleted items. Called with a <i>range</i> argument, <b>#slice!(range)</b> deletes items at the indices specified by the <i>range</i>, and returns them.</p>
               <ul class="code code-block code-small">
-                <li class="code-comment">#slice(index)
+                <li class="code-comment">#slice!(index)
                 <li>ary = ['a','b','c','d','e','f','g']</li>
-                <li>ary.slice(3)</li>
+                <li>ary.slice!(3)</li>
                 <li>=> "d"</li>
                 <li>ary</li>
                 <li>=> ["a", "b", "c", "e", "f", "g"]</li>
-                <li class="code-comment headroom-half">#slice(index, quantity)
+                <li class="code-comment headroom-half">#slice!(index, quantity)
                 <li>ary = ['a','b','c','d','e','f','g']</li>
-                <li>ary.slice(2, 3)</li>
+                <li>ary.slice!(2, 3)</li>
                 <li>=> ["c", "d", "e"]</li>
                 <li>ary</li>
                 <li>=> ["a", "b", "f", "g"]</li>
-                <li class="code-comment headroom-half">#slice(range)
+                <li class="code-comment headroom-half">#slice!(range)
                 <li>ary = ['a','b','c','d','e','f','g']</li>
-                <li>ary.slice(1..4)</li>
+                <li>ary.slice!(1..4)</li>
                 <li>=> ["b", "c", "d", "e"]</li>
                 <li>ary</li>
                 <li>=> ["a", "f", "g"]</li>
               </ul>
 
-              <h4 class="code warning">Array#push(obj, &hellip;)</h4>
-              <p class="hang-indent"><b>Action:</b> Appends object(s) to the end of the array.</p>
+              <h4 id="push" class="code warning">Array#push(obj, &hellip;)</h4>
+              <p class="hang-indent"><b>Action:</b> Appends <i>object(s)</i> to the end of the array.</p>
               <p class="hang-indent"><b>Returns:</b> The amended array.</p>
               <ul class="code code-block code-small">
                 <li>ary = ['a','b','c']</li>
@@ -700,10 +725,10 @@
                 <li>=> ["a", "b", "c", "x", "y", "z"]</li>
               </ul>
 
-              <h4 class="code warning">Array#pop</h4>
-              <p class="hang-indent"><b>Action:</b> Deletes object from the end of the array.</p>
+              <h4 id="pop" class="code warning">Array#pop</h4>
+              <p class="hang-indent"><b>Action:</b> Deletes last item from end of array.</p>
               <p class="hang-indent"><b>Returns:</b> The deleted item.</p>
-              <p><b>Note:</b> Called with an <i>integer</i> argument, #pop(integer) deletes the last <i>integer</i> items from the original array, and returns them as a new array.</p>
+              <p class="hang-indent"><b>Note:</b> Called with an <i>integer</i> argument, <b>#pop(integer)</b> deletes the last <i>integer</i> items from the original array, and returns them as a new array.</p>
               <ul class="code code-block code-small">
                 <li class="code-comment">#pop</li>
                 <li>ary = ['a','b','c','d','e']</li>
@@ -719,8 +744,8 @@
                 <li>=> ["a", "b", "c"]
               </ul>
 
-              <h4 class="code warning">Array#unshift(obj,&hellip;)</h4>
-              <p class="hang-indent"><b>Action:</b> Inserts object(s) at the start of the array.</p>
+              <h4 id="unshift" class="code warning">Array#unshift(obj,&hellip;)</h4>
+              <p class="hang-indent"><b>Action:</b> Inserts <i>object(s)</i> at the start of the array.</p>
               <p class="hang-indent"><b>Returns:</b> The amended array.</p>
               <ul class="code code-block code-small">
                 <li>ary = ['a','b','c']</li>
@@ -730,10 +755,10 @@
                 <li>=> ["x", "y", "z", "a", "b", "c"]</li>
               </ul>
 
-              <h4 class="code warning">Array#shift</h4>
+              <h4 id="shift" class="code warning">Array#shift</h4>
               <p class="hang-indent"><b>Action:</b> Deletes item from the start of the array.</p>
               <p class="hang-indent"><b>Returns:</b> The deleted item.</p>
-              <p><b>Note:</b> Called with an <i>integer</i> argument, #shift(integer) deletes the last <i>integer</i> items from the original array, and returns them as a new array.</p>
+              <p class="hang-indent"><b>Note:</b> Called with an <i>integer</i> argument, <b>#shift(integer)</b> deletes the last <i>integer</i> items from the original array, and returns them as a new array.</p>
               <ul class="code code-block code-small">
                 <li class="code-comment">#shift</li>
                 <li>ary = ['a','b','c','d','e']</li>
@@ -749,7 +774,7 @@
                 <li>=> ["c", "d", "e"]
               </ul>
 
-              <h4 class="code warning">Array#insert(index, obj, &hellip;)</h4>
+              <h4 id="insert" class="code warning">Array#insert(index, obj, &hellip;)</h4>
               <p class="hang-indent"><b>Action:</b> Inserts <i>object(s)</i> at the specified <i>index</i> of the array.</p>
               <p class="hang-indent"><b>Returns:</b> The amended array.</p>
               <ul class="code code-block code-small">
@@ -764,10 +789,10 @@
 
             <section class="ph-col-12 cmp-col-6 section__boxed--r-col"><!-- Manipulation rt col -->
 
-              <h4 class="code warning">Array#delete(object)</h4>
+              <h4 id="delete" class="code warning">Array#delete(object)</h4>
               <p class="hang-indent"><b>Action:</b> Deletes all occurences of the <i>object</i> from the array.</p>
-              <p class="hang-indent"><b>Returns:</b> The last object deleted, or<code> nil </code>if no objects were deleted.</p>
-              <p class="hang-indent"><b>Note:</b> Called with a code block, #delete(obj) { block }
+              <p class="hang-indent"><b>Returns:</b> The last <i>object</i> deleted, or<code> nil </code>if no objects were deleted.</p>
+              <p class="hang-indent"><b>Note:</b> Called with a code block, <b>#delete(object) { block }</b> executes <i>block</i> if <i>object</i> is not found within array.
               <ul class="code code-block code-small">
                 <li class="code-comment">#delete(obj)</li>
                 <li>ary = ['a','b','a','c','a','b']</li>
@@ -783,10 +808,10 @@
                 <li>=> ["a", "b", "a", "c", "a", "b"]</li>
               </ul>
 
-              <h4 class="code warning">Array#select! { |item| block }</h4>
-              <p class="hang-indent"><b>Action:</b> Deletes from the array every item for which the block evaluates to<code> false</code>.</p>
+              <h4 id="selectBang" class="code warning">Array#select! { |item| block }</h4>
+              <p class="hang-indent"><b>Action:</b> Deletes from the array every <i>item</i> for which <i>block</i> evaluates to<code> false</code>.</p>
               <p class="hang-indent"><b>Returns:</b> The amended array, or<code> nil </code>if all items evaluated to<code> true </code>for the block.</p>
-              <p class="hang-indent"><b>Note:</b> #keep_if is a synonym for #select!.</p>
+              <p class="hang-indent"><b>Note: #keep_if</b> is a synonym for #select!.</p>
               <ul class="code code-block code-small">
                 <li>ary = [1,2,3,4,5,6,7,8,9,10,11,12]</li>
                 <li>ary.select! { |i| i % 3 == 0 }</li>
@@ -795,10 +820,10 @@
                 <li>=> [3, 6, 9, 12]</li>
               </ul>
 
-              <h4 class="code warning">Array#reject! { |item| block }</h4>
-              <p class="hang-indent"><b>Action:</b> Deletes from the array every item for which the block evaluates to<code> true</code>.</p>
+              <h4 id="rejectBang" class="code warning">Array#reject! { |item| block }</h4>
+              <p class="hang-indent"><b>Action:</b> Deletes from the array every <i>item</i> for which <i>block</i> evaluates to<code> true</code>.</p>
               <p class="hang-indent"><b>Returns:</b> The amended array, or<code> nil </code>if all items evaluated to<code> false </code>for the block.</p>
-              <p class="hang-indent"><b>Note:</b> #delete_if is a synonym for #reject!.</p>
+              <p class="hang-indent"><b>Note: #delete_if</b> is a synonym for #reject!.</p>
               <ul class="code code-block code-small">
                 <li>ary = [1,2,3,4,5,6,7,8,9,10,11,12]</li>
                 <li>ary.reject! { |i| i % 3 == 0 }</li>
@@ -807,7 +832,7 @@
                 <li>=> [1, 2, 4, 5, 7, 8, 10, 11]</li>
               </ul>
 
-              <h4 class="code warning">Array#concat(other_array)</h4>
+              <h4 id="concat" class="code warning">Array#concat(other_array)</h4>
               <p class="hang-indent"><b>Action:</b> Appends all items in <i>other_array</i> to the end of the original array.</p>
               <p class="hang-indent"><b>Returns:</b> The amended array.</p>
               <ul class="code code-block code-small">
@@ -818,8 +843,8 @@
                 <li>=> ["a", "b", "c", "x", "y", "z"]</li>
               </ul>
 
-              <h4 class="code warning">Array#replace(other_array)</h4>
-              <p class="hang-indent"><b>Action:</b> Appends all items in <i>other_array</i> to the end of the original array.</p>
+              <h4 id="replace" class="code warning">Array#replace(other_array)</h4>
+              <p class="hang-indent"><b>Action:</b> Replaces all items in array with the contents of <i>other_array</i>.</p>
               <p class="hang-indent"><b>Returns:</b> The amended array.</p>
               <ul class="code code-block code-small">
                 <li>ary = ['a','b','c']</li>
@@ -829,7 +854,7 @@
                 <li>=> ["x", "y", "z"]</li>
               </ul>
 
-              <h4 class="code warning">Array#uniq!</h4>
+              <h4 id="uniqBang" class="code warning">Array#uniq!</h4>
               <p class="hang-indent"><b>Action:</b> Deletes duplicate items from the array.</p>
               <p class="hang-indent"><b>Returns:</b> The amended array, or<code> nil </code>if the array included no duplicate items.</p>
               <ul class="code code-block code-small">
@@ -840,7 +865,7 @@
                 <li>=> ["a", "b", "c"]</li>
               </ul>
 
-              <h4 class="code warning">Array#compact!</h4>
+              <h4 id="compactBang" class="code warning">Array#compact!</h4>
               <p class="hang-indent"><b>Action:</b> Deletes<code> nil </code> items from the array.</p>
               <p class="hang-indent"><b>Returns:</b> The amended array.</p>
               <ul class="code code-block code-small">
@@ -851,7 +876,7 @@
                 <li>=> ["a", "b", "c", "b"]</li>
               </ul>
 
-              <h4 class="code warning">Array#clear</h4>
+              <h4 id="clear" class="code warning">Array#clear</h4>
               <p class="hang-indent"><b>Action:</b> Deletes all items from the array.</p>
               <p class="hang-indent"><b>Returns:</b> The newly-empty array.</p>
               <ul class="code code-block code-small">
@@ -877,7 +902,7 @@
 
             <section class="ph-col-12 cmp-col-6 section__boxed--l-col"><!-- Reorder lft col -->
 
-              <h4 class="code footroom-half">Array#sort</h4>
+              <h4 id="sort" class="code footroom-half">Array#sort</h4>
               <p class="hang-indent"><b>Action:</b> Sorts the array in alphanumeric order.</p>
               <p class="hang-indent"><b>Returns:</b> A new, sorted array.</p>
               <p class="hang-indent"><b>Note:</b> #sort is not destructive. <b  class="warning">#sort!</b> is the <b  class="warning">destructive</b> version; #sort! sorts the original array in place and returns it.</p>
@@ -886,7 +911,7 @@
                 <li>=> ["a", "b", "c", "d", "e", "f"]</li>
               </ul>
 
-              <h4 class="code footroom-half">Array#shuffle</h4>
+              <h4 id="shuffle" class="code footroom-half">Array#shuffle</h4>
               <p class="hang-indent"><b>Action:</b> Shuffles the array in random order.</p>
               <p class="hang-indent"><b>Returns:</b> A new, shuffled array.</p>
               <p class="hang-indent"><b>Note:</b> #shuffle is not destructive. <b class="warning">#shuffle!</b> is the <b class="warning">destructive</b> version; #shuffle! shuffles the original array in place and returns it.</p>
@@ -895,7 +920,7 @@
                 <li>=> ["c", "d", "a", "e", "f", "b"]</li>
               </ul>
 
-              <h4 class="code footroom-half">Array#reverse</h4>
+              <h4 id="reverse" class="code footroom-half">Array#reverse</h4>
               <p class="hang-indent"><b>Action:</b> Reverses the order of the items in the array.</p>
               <p class="hang-indent"><b>Returns:</b> A new, reversed array.</p>
               <p class="hang-indent"><b>Note:</b> #reverse is not destructive. <b class="warning">#reverse!</b> is the <b class="warning">destructive</b> version; #reverse! reverses the original array in place and returns it.</p>
@@ -904,7 +929,7 @@
                 <li>=> ["f", "e", "d", "c", "b", "a"]</li>
               </ul>
 
-              <h4 class="code footroom-half">Array#rotate(index)</h4>
+              <h4 id="rotate" class="code footroom-half">Array#rotate(index)</h4>
               <p class="hang-indent"><b>Action:</b> Rotates the items in the array so that the item at <i>index</i> moves to index 0.</p>
               <p class="hang-indent"><b>Returns:</b> A new, rotated array.</p>
               <p class="hang-indent"><b>Note:</b> #rotate is not destructive. <b class="warning">#rotate!</b> is the <b class="warning">destructive</b> version; #rotate! rotates the original array in place and returns it.</p>
@@ -917,7 +942,7 @@
 
             <section class="ph-col-12 cmp-col-6 section__boxed--r-col"><!-- Reorder rt col -->
 
-              <h4 class="code footroom-half">Array#flatten</h4>
+              <h4 id="flatten" class="code footroom-half">Array#flatten</h4>
               <p class="hang-indent"><b>Action:</b> Called upon nested arrays, returns a new array with all nested arrays flattened to a single array.</p>
               <p class="hang-indent"><b>Returns:</b> A new, flattened array.</p>
               <p class="hang-indent"><b>Note:</b> Called with an <i>integer</i> argument, #flatten(int) will flatten the nested arrays by <i>int</i> levels.</p>
@@ -933,7 +958,7 @@
                 <li>=> [1, 2, 3, 4, 5, 6, [7, 8, 9, 10], 11, 12, 13]</li>
               </ul>
 
-              <h4 class="code footroom-half">Array#transpose</h4>
+              <h4 id="transpose" class="code footroom-half">Array#transpose</h4>
               <p class="hang-indent"><b>Action:</b> Called upon a two-dimensional array (rows and columns), returns a new array with the rows and columns switched.</p>
               <p class="hang-indent"><b>Returns:</b> A new, transposed two-dimensional array.</p>
               <p class="hang-indent"><b>Note:</b> #transpose is not destructive. There is no #transpose! version.</p>
