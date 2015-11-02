@@ -58,9 +58,8 @@ p {
   line-height: 1.6;
 }
 
-.debug {
-  border: 1px red dotted;
-}
+
+/* Link Styles */
 
 a:link,
 a:visited {
@@ -69,10 +68,33 @@ a:visited {
 }
 
 
-
 a:hover, a:active {
   color: rgb( 32,204,124); /* Hi Grn */
   text-decoration: underline;
+}
+
+.blue-link:link,
+.blue-link:visited {
+  color: rgb( 52, 60,163); /* Md Blu */
+  text-decoration: none;
+}
+
+.blue-link:hover,
+.blue-link:active {
+  color: rgb( 81, 94,255); /* Hi Blu */
+  text-decoration: none;
+}
+
+.black-link:link,
+.black-link:visited {
+  color: rgb( 18, 18, 18); /* Md Blk */
+  text-decoration: none;
+}
+
+.black-link:hover,
+.black-link:active {
+  color: rgb( 96, 96, 96); /* Hi Blk */
+  text-decoration: none;
 }
 
 
@@ -82,17 +104,7 @@ a:hover, a:active {
 }
 
 
-.border-top {
-  border-top: 1px solid rgb( 41, 47,127); /* Lo Blu */
-}
 
-
-.box-item {
-  background-color: rgb(204,204,204); /* Lo Wht */
-  color: rgb(  0,  0,  0); /* Lo Blk */
-  border: 1px solid rgb(  0,  0,  0); /* Lo Blk */
-  font-size: 0.8rem;
-}
 
 .main--head {
   font-size: 2.6rem;
@@ -113,6 +125,17 @@ a:hover, a:active {
   line-height: 1.2;
 }
 
+.section__boxed {
+  border: 2px solid rgb( 52, 60,163); /* Md Blu */
+  padding: 1rem 1.2rem;
+  margin-left: .6rem;
+  margin-right: .6rem;
+  margin-bottom: 1rem;
+}
+
+/* See also .section__boxed--l-col and -r-col in media queries */
+
+
 .aside--head {
   font-size: 1.6rem;
   padding-top: 0.75rem;
@@ -129,6 +152,9 @@ a:hover, a:active {
   color: rgb( 52, 60,163); /* Md Blu */
 }
 
+
+/**** Code Snippet Styling ****/
+
 code,
 .code {
   font-family: monospace, monospace;
@@ -138,6 +164,11 @@ code,
 p>code {
   font-size: 1.1em;
   line_height: 0.75em;
+}
+
+h3.code,
+h4.code {
+  font-size: 1.15em;
 }
 
 .code-block {
@@ -164,29 +195,11 @@ p>code {
   color: rgb( 127, 127, 127); /* Gray */
 }
 
-.blue-link:link,
-.blue-link:visited {
-  color: rgb( 52, 60,163); /* Md Blu */
-  text-decoration: none;
+.code-small {
+  font-size: .8em;
+  line-height: 1.2em;
 }
 
-.blue-link:hover,
-.blue-link:active {
-  color: rgb( 81, 94,255); /* Hi Blu */
-  text-decoration: none;
-}
-
-.black-link:link,
-.black-link:visited {
-  color: rgb( 18, 18, 18); /* Md Blk */
-  text-decoration: none;
-}
-
-.black-link:hover,
-.black-link:active {
-  color: rgb( 96, 96, 96); /* Hi Blk */
-  text-decoration: none;
-}
 
 /** Masthead Styles **/
 
@@ -291,7 +304,6 @@ p>code {
 }
 
 
-
 .blog--footer {
   font-family: 'Walter Turncoat', 'Comic Sans MS', sans-serif;
   font-size: 1.4rem;
@@ -322,6 +334,26 @@ p>code {
 }
 
 
+/**** Helper Styles ****/
+
+.border-top {
+  border-top: 1px solid rgb( 41, 47,127); /* Lo Blu */
+}
+
+
+.box-item {
+  background-color: rgb(204,204,204); /* Lo Wht */
+  color: rgb(  0,  0,  0); /* Lo Blk */
+  border: 1px solid rgb(  0,  0,  0); /* Lo Blk */
+  font-size: 0.8rem;
+}
+
+.hang-indent {
+  line-height: 1.2rem;
+  padding-left: 1.2rem;
+  text-indent: -1.2rem;
+  margin-bottom: 0.2rem;
+}
 
 
 /**** SCREEN-WIDTH-DEPENDENT STYLES ****/
@@ -350,7 +382,14 @@ p>code {
 /* COMPUTER (small monitor) - 960px; 1rem = 16px */
 @media only screen and (min-width: 960px) {
 
+  .section__boxed--l-col {
+    padding-right: 1.2rem;
+    border-right: 1px solid rgb( 52, 60,163); /* Md Blu */
+  }
 
+  .section__boxed--r-col {
+    padding-left: 1.2rem;
+  }
 
 
 
