@@ -446,6 +446,7 @@ html {
 
 
 /* Add or remove space above element - usually <h_> or <p> */
+.headroom-2x    { padding-top: 2rem; }
 .headroom-more  { padding-top: 1.5rem; }
 .headroom       { padding-top: 1rem; }
 .headroom-half  { padding-top: 0.5rem; }

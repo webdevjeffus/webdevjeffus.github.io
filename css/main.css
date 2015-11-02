@@ -125,6 +125,12 @@ a:hover, a:active {
   line-height: 1.2;
 }
 
+.section--minor-head {
+  font-family: 'Walter Turncoat', 'Comic Sans MS', sans-serif;
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
 .section__boxed {
   border: 2px solid rgb( 52, 60,163); /* Md Blu */
   padding: 1rem 1.2rem;
@@ -340,7 +346,6 @@ h4.code {
   border-top: 1px solid rgb( 41, 47,127); /* Lo Blu */
 }
 
-
 .box-item {
   background-color: rgb(204,204,204); /* Lo Wht */
   color: rgb(  0,  0,  0); /* Lo Blk */
@@ -355,6 +360,20 @@ h4.code {
   margin-bottom: 0.2rem;
 }
 
+.warning {
+  color: rgb(173, 43, 48); /* Md Red */
+}
+
+.top-link {
+  position: absolute;
+  top: 0;
+  right: 1.2rem;
+}
+
+.no-bullets {
+  list-style: none;
+  padding: 0;
+}
 
 /**** SCREEN-WIDTH-DEPENDENT STYLES ****/
 
