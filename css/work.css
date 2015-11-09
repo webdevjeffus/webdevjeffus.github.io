@@ -38,19 +38,16 @@
   float: right;
 }
 
+/* Apply only to right and left nav arrow link tags */
 .work-post--nav-arrow {
   position: relative;
   top: 0.25em;
   padding-left: 0.1em;
 }
 
+/* Apply only to up nav arrow tags */
 .work-post--nav-arrow-up {
-  /* position: relative;
-  top: 0.1em; */
   padding-left: 0.1em;
 }
 
-.work-post--nav-link:hover,
-.work-post--nav-link:active {
-  text-decoration: none;
-}
+/* Also, add griddy.css style .icon-link to nav arrow link tags */
