@@ -103,6 +103,10 @@ a:active {
   right: 1.2rem;
 }
 
+/* Icon Link - apply to all <a> links made with FontAwesome or Glyphicon icon fonts */
+.icon-link:hover,
+.icon-link:active { text-decoration: none; }
+
 
 /* Page-level styles */
 
@@ -250,16 +254,6 @@ h4.code {
   left: 1.2rem;
 }
 
-/*
-.masthead--nav {
-  list-style: none;
-  float: right;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-*/
-
 .masthead--nav-item {
   display: inline-block;
   font-family: 'Walter Turncoat', 'Comic Sans MS', sans-serif;
@@ -398,13 +392,12 @@ h4.code {
   height: 3.6rem;
   position: fixed;
   bottom: 0;
-  /*border: 1px magenta solid;*/
+  z-index: 100;
 }
 
 .masthead--nav {
   list-style: none;
   -webkit-padding-start: 0;
-  /*border: 1px magenta dashed;*/
 }
 
 .masthead--nav-item__first {
@@ -431,7 +424,6 @@ h4.code {
   position: absolute;
   bottom: 0;
   right: 0;
-  /*border: 1px magenta solid;*/
 }
 
 .masthead--nav {
