@@ -179,7 +179,8 @@ html {
 .box.ph-col-11 { width:  89.667%; float: left; }
 .box.ph-col-12 { width:  98%;     float: left; }
 
-/* Hide element */
+
+/* Hide element at phone width */
 
 .ph-hide-inl,
 .ph-hide-blk,
@@ -411,6 +412,10 @@ html {
   padding: 0;
   line-height: 0;
 }
+
+/* Icon Link - apply to all <a> links made with FontAwesome or Glyphicon icon fonts */
+.icon-link:hover,
+.icon-link:active { text-decoration: none; }
 
 
 /* Reference Point - Makes parent element reference point for child with position: absolute; */
