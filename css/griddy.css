@@ -374,7 +374,7 @@ html {
   .ph-hide-blk, .tab-hide-blk  { display: block;  }
   .ph-hide-ib,  .tab-hide-ib   { display: inline-block; }
 
-/* Hide elements at tablet width */
+/* Hide elements at computer width */
 
   .cmp-hide-inl,
   .cmp-hide-blk,
