@@ -146,7 +146,6 @@ target.onclick = function() {
   displayScore();
   if ( score == lastBonus + BONUS_GOAL + bonusCounter ) {
     lastBonus += BONUS_GOAL + bonusCounter;
-    console.log("New bonus:" + lastBonus);
     bonusCounter++;
     timer += BONUS_TIME;
   }
