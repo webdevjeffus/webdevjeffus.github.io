@@ -271,7 +271,6 @@ h4.code {
 .masthead--nav-link:hover,
 .masthead--nav-link:active {
   color: rgb( 32,204,124); /* Hi Grn */
-  text-decoration: underline;
 }
 
 
